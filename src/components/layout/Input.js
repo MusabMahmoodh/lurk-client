@@ -7,8 +7,8 @@ import {
 } from "react-bootstrap";
 const Input = () => {
   return (
-    <>
-      <InputGroup className="m-3" style={{ maxWidth: "500px" }}>
+    <div>
+      <InputGroup style={{ maxWidth: "500px" }}>
         <DropdownButton
           as={InputGroup.Prepend}
           variant="outline-secondary"
@@ -27,7 +27,7 @@ const Input = () => {
           </InputGroup.Text>
         </InputGroup.Append>
       </InputGroup>
-    </>
+    </div>
   );
 };
 

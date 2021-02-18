@@ -7,7 +7,8 @@ import {
   ListGroup,
   Button,
   Card,
-  Form,
+  InputGroup,
+  FormControl,
 } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -29,9 +30,9 @@ const ProductScreen = ({ match, history }) => {
   }, [dispatch, match]);
   const { loading, error, product } = productDetails;
 
-  // const addToCartHandler = () => {
-  //   history.push(`/cart/${match.params.id}?qty=${qty}`);
-  // };
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
 
   return (
     <div>
@@ -68,7 +69,7 @@ const ProductScreen = ({ match, history }) => {
           </Col>
 
           <Col md={3}>
-            <Card backgroun>
+            <Card>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
@@ -90,18 +91,18 @@ const ProductScreen = ({ match, history }) => {
                 {product.isAvailable && (
                   <ListGroup.Item>
                     <Row>
-                      <Col>Qty</Col>
+                      <Col>Quantity</Col>
                       <Col xs="auto" className="my-1">
-                        <Form.Control
-                          as="select"
-                          value={qty}
-                          onChange={(e) => setQty(e.target.value)}>
-                          {[...Array(product.isAvailable).keys()].map((x) => (
-                            <option key={x + 1} value={x + 1}>
-                              {x + 1}
-                            </option>
-                          ))}
-                        </Form.Control>
+                        <InputGroup size="sm" className="mb-3">
+                          <FormControl
+                            aria-label="Quantity"
+                            aria-describedby="inputGroup-sizing-sm"
+                            type="number"
+                            min="0"
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          />
+                        </InputGroup>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -109,7 +110,7 @@ const ProductScreen = ({ match, history }) => {
 
                 <ListGroup.Item>
                   <Button
-                    // onClick={addToCartHandler}
+                    onClick={addToCartHandler}
                     className="btn-block"
                     disabled={product.isAvailable == 0}
                     type="button">
