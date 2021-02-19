@@ -32,14 +32,17 @@ function CartScreen({ match, location, history }) {
     dispatch(removeFromCart(id));
   };
 
-  //   const checkoutHandler = () => {
-  //     history.push("/login?redirect=shipping");
-  //   };
+  const checkoutHandler = () => {
+    history.push("/shipping");
+  };
 
   return (
     <Row>
-      <Col md={8}>
+      <Col xs={12}>
         <h1>Shopping Cart</h1>
+      </Col>
+
+      <Col md={8}>
         {cartItems.length === 0 ? (
           <Message variant="info">
             Your cart is empty <Link to="/">Go Back</Link>
@@ -110,8 +113,7 @@ function CartScreen({ match, location, history }) {
               type="button"
               className="btn-block"
               disabled={cartItems.length === 0}
-              //   onClick={checkoutHandler}
-            >
+              onClick={checkoutHandler}>
               Proceed To Checkout
             </Button>
           </ListGroup.Item>

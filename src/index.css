@@ -1,4 +1,7 @@
 main{
-  min-height: 70vh;
-  background: #EDEBE6;
+  min-height: 80vh;
+ 
+}
+.bg-body{
+  background: #f1d4f1;
 }
