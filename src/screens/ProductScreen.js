@@ -71,7 +71,7 @@ const ProductScreen = ({ match, history }) => {
           <Col md={3}>
             <Card>
               <ListGroup variant="flush">
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-light text-dark">
                   <Row>
                     <Col>Price:</Col>
                     <Col>
@@ -79,7 +79,7 @@ const ProductScreen = ({ match, history }) => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-light text-dark">
                   <Row>
                     <Col>Status:</Col>
                     <Col>
@@ -89,7 +89,7 @@ const ProductScreen = ({ match, history }) => {
                 </ListGroup.Item>
 
                 {product.isAvailable && (
-                  <ListGroup.Item>
+                  <ListGroup.Item className="bg-light text-dark">
                     <Row>
                       <Col>Quantity</Col>
                       <Col xs="auto" className="my-1">
@@ -108,7 +108,7 @@ const ProductScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 )}
 
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-light text-dark">
                   <Button
                     onClick={addToCartHandler}
                     className="btn-block"

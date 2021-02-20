@@ -6,16 +6,26 @@ import {
   FormControl,
   Button,
   Container,
+  NavDropdown,
   Row,
   Col,
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo.png";
+import { logout } from "../../actions/userActions";
 import Input from "./Input";
 const Header = ({ position }) => {
+  const dispatch = useDispatch();
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
   return (
     <Navbar
       bg="light"
@@ -53,32 +63,57 @@ const Header = ({ position }) => {
           <Nav className="mr-0" style={{ float: "right" }}>
             <LinkContainer to="/cart">
               <Nav.Link>
-                <i
-                  class="fas fa-shopping-cart fa-2x"
-                  style={{ position: "relative" }}>
-                  <div
-                    style={{
-                      background: "red",
-                      color: "white",
-                      padding: "0",
-                      borderRadius: "25px",
-                      width: "25px",
-                      height: "25px",
-                      fontSize: "15px",
-                      border: "2px solid white",
-                      textAlign: "center",
-                      position: "absolute",
-                      top: "-8px",
-                      left: "15px",
-                    }}>
-                    <small className="text-center">
-                      {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                    </small>
-                  </div>
-                </i>
+                {userInfo && userInfo.isAdmin ? (
+                  <NavDropdown title="Admin" id="adminmenu">
+                    <LinkContainer to="/admin/userlist">
+                      <NavDropdown.Item>Users</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/productlist">
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/productlist">
+                      <NavDropdown.Item>Categories</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/productlist">
+                      <NavDropdown.Item>Variations</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/orderlist">
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <i
+                    class="fas fa-shopping-cart fa-2x"
+                    style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        background: "red",
+                        color: "white",
+                        padding: "0",
+                        borderRadius: "25px",
+                        width: "25px",
+                        height: "25px",
+                        fontSize: "15px",
+                        border: "2px solid white",
+                        textAlign: "center",
+                        position: "absolute",
+                        top: "-8px",
+                        left: "15px",
+                      }}>
+                      <small className="text-center">
+                        {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                      </small>
+                    </div>
+                  </i>
+                )}
               </Nav.Link>
             </LinkContainer>
-            <Nav.Item></Nav.Item>
           </Nav>
         </Col>
       </Row>

@@ -28,12 +28,12 @@ const CircleMenu = () => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://instagram.com/lurk.lk_official"
+          href="https://wa.me/94772421363"
           className="menu-item fab fa-whatsapp"></a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://wa.me/94772421363"
+          href="https://instagram.com/lurk.lk_official"
           className="menu-item fab fa-instagram"
         />
       </menu>

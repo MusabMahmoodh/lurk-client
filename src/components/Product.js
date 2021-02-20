@@ -17,7 +17,9 @@ function Product({ product }) {
             {product.isAvailable ? "Available" : "Out of stock"}
           </Badge>{" "}
         </Card.Text>
-        <Card.Title as="div">
+        <Card.Title
+          as="div"
+          style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
           <strong>{product.name}</strong>
         </Card.Title>
         <Card.Text as="div">

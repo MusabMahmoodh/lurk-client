@@ -37,9 +37,9 @@ function CartScreen({ match, location, history }) {
   };
 
   return (
-    <Row>
+    <Row className="py-2 ">
       <Col xs={12}>
-        <h1>Shopping Cart</h1>
+        <h3 className="pb-2 ">Shopping Cart</h3>
       </Col>
 
       <Col md={8}>
@@ -50,18 +50,20 @@ function CartScreen({ match, location, history }) {
         ) : (
           <ListGroup variant="flush">
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product}>
+              <ListGroup.Item key={item.product} className="bg-light text-dark">
                 <Row>
-                  <Col md={2}>
+                  <Col xs={4} md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
-                  <Col md={3}>
+                  <Col xs={4} md={3}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
 
-                  <Col md={2}>${item.price}</Col>
-
-                  <Col md={3}>
+                  <Col xs={4} md={1}>
+                    Rs. {item.price}
+                  </Col>
+                  <Col xs={3} md={0}></Col>
+                  <Col xs={6} md={2}>
                     <InputGroup size="sm" className="mb-3">
                       <FormControl
                         aria-label="Quantity"
@@ -78,7 +80,7 @@ function CartScreen({ match, location, history }) {
                     </InputGroup>
                   </Col>
 
-                  <Col md={1}>
+                  <Col xs={3} md={1}>
                     <Button
                       type="button"
                       variant="light"
@@ -96,19 +98,19 @@ function CartScreen({ match, location, history }) {
       <Col md={4}>
         <Card>
           <ListGroup variant="flush">
-            <ListGroup.Item>
+            <ListGroup.Item className="bg-light text-dark">
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
               </h2>
-              $
+              Rs.
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
           </ListGroup>
 
-          <ListGroup.Item>
+          <ListGroup.Item className="bg-light text-dark">
             <Button
               type="button"
               className="btn-block"

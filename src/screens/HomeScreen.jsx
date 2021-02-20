@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import RecommendedCarousal from "../components/RecommendedCarousal";
 import { listProducts } from "../actions/productActions";
 
 function HomeScreen({ history }) {
@@ -20,16 +21,21 @@ function HomeScreen({ history }) {
   }, [dispatch, keyword]);
 
   return (
-    <div>
+    <div className="py-0">
       {!keyword && <ProductCarousel />}
 
-      <h1>Latest Products</h1>
+      <h5 className="my-2">Lurk collection</h5>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
         <div>
+          {products.products && (
+            <RecommendedCarousal products={products.products} />
+          )}
+
+          <hr style={{ marginTop: 0 }}></hr>
           <Row style={{ width: "100%", margin: "auto" }}>
             {products.products &&
               products.products.map((product) => (

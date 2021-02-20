@@ -49,13 +49,15 @@ function ProductCarousel() {
         </Carousel.Item>
       ))} */}
       {products.map((product) => (
-        <Carousel.Item key={product._id}>
+        <Carousel.Item key={product._id} className="text-center">
           {/* <Link to={`/product/${product._id}`}> */}
+
           <Image
             src={product.image}
             fluid
-            style={{ width: "100%", height: "30vh" }}
+            style={{ height: "30vh", margin: "auto" }}
           />
+
           {/* <Carousel.Caption className="carousel.caption">
               {/* <h4>
                 {product.name} (${product.price})
