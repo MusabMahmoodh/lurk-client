@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  Container,
-  NavDropdown,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo.png";
@@ -44,8 +34,10 @@ const Header = ({ position }) => {
           paddingTop: "10px",
         }}>
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
-          <Navbar.Brand href="/">
-            <img src={Logo} height="30px" alt="fireSpot" />
+          <Navbar.Brand>
+            <LinkContainer to="/">
+              <img src={Logo} height="30px" alt="fireSpot" />
+            </LinkContainer>
           </Navbar.Brand>
         </Col>
         <Col

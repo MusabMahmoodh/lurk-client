@@ -23,6 +23,7 @@ import CategoryEditScreen from "./screens/CategoryEditScreen";
 
 import OrderListScreen from "./screens/OrderListScreen";
 import LoginScreen from "./screens/LoginScreen";
+import OrderScreen from "./screens/OrderScreen";
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
             path="/admin/category/:id/edit"
             component={CategoryEditScreen}
           />
+          <Route path="/order/:id" component={OrderScreen} />
         </main>
         <Footer />
       </Router>
