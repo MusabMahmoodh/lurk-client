@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   InputGroup,
   DropdownButton,
@@ -6,11 +6,17 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { listCategories } from "../../actions/categoryActions";
 import { useHistory } from "react-router-dom";
 const Input = () => {
+  const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
-
+  const [category, setCategory] = useState("All");
   let history = useHistory();
+
+  const categoryList = useSelector((state) => state.categoryList);
+  const { categories } = categoryList;
   const submitHandler = (e) => {
     e.preventDefault();
     if (keyword) {
@@ -19,19 +25,27 @@ const Input = () => {
       history.push(history.push(history.location.pathname));
     }
   };
+  useEffect(() => {
+    dispatch(listCategories());
+  }, [dispatch]);
   return (
     <div>
       <InputGroup style={{ maxWidth: "500px" }}>
         <DropdownButton
           as={InputGroup.Prepend}
           variant="outline-secondary"
-          title="All"
+          title={category}
           id="input-group-dropdown-1">
-          <Dropdown.Item href="#">Action</Dropdown.Item>
-          <Dropdown.Item href="#">Another action</Dropdown.Item>
-          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Item href="#" onClick={() => setCategory("All")}>
+            All
+          </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+          {categories.category &&
+            categories.category.map((cat) => (
+              <Dropdown.Item href="#" onClick={() => setCategory(cat.name)}>
+                {cat.name}
+              </Dropdown.Item>
+            ))}
         </DropdownButton>
         <FormControl
           aria-describedby="basic-addon1"

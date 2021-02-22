@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo.png";
 import { logout } from "../../actions/userActions";
+
 import Input from "./Input";
 const Header = ({ position }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Header = ({ position }) => {
   const logoutHandler = () => {
     dispatch(logout());
   };
+
   return (
     <Navbar
       bg="light"
@@ -56,7 +58,10 @@ const Header = ({ position }) => {
             <LinkContainer to="/cart">
               <Nav.Link>
                 {userInfo && userInfo.isAdmin ? (
-                  <NavDropdown title="Admin" id="adminmenu">
+                  <NavDropdown
+                    title="Admin"
+                    id="dropdown-button-drop-left"
+                    drop="left">
                     <LinkContainer to="/admin/userlist">
                       <NavDropdown.Item>Users</NavDropdown.Item>
                     </LinkContainer>
