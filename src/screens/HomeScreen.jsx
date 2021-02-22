@@ -7,17 +7,20 @@ import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
 import RecommendedCarousal from "../components/RecommendedCarousal";
-import { listProducts } from "../actions/productActions";
+import { listProducts, listTopProducts } from "../actions/productActions";
 
 function HomeScreen({ history }) {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { error, loading, products, page, pages } = productList;
+  const topProductList = useSelector((state) => state.productTopRated);
+  const { productsTop } = topProductList;
 
   let keyword = history.location.search;
 
   useEffect(() => {
     dispatch(listProducts(keyword));
+    dispatch(listTopProducts());
   }, [dispatch, keyword]);
 
   return (
