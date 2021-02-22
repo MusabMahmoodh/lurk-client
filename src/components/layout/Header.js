@@ -71,11 +71,15 @@ const Header = ({ position }) => {
                     <LinkContainer to="/admin/productlist">
                       <NavDropdown.Item>Products</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/admin/productlist">
+
+                    <LinkContainer to="/admin/variationslist">
+                      <NavDropdown.Item>Variations</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/categorylist">
                       <NavDropdown.Item>Categories</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/admin/productlist">
-                      <NavDropdown.Item>Variations</NavDropdown.Item>
+                    <LinkContainer to="/admin/subvariationslist">
+                      <NavDropdown.Item>Sub Variations</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/admin/orderlist">
                       <NavDropdown.Item>Orders</NavDropdown.Item>

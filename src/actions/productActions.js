@@ -103,7 +103,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/products/delete/${id}/`, config);
+    const { data } = await axios.delete(`/api/products/${id}/`, config);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -170,7 +170,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/update/${product._id}/`,
+      `/api/products/${product._id}/`,
       product,
       config
     );

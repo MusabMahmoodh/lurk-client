@@ -14,8 +14,16 @@ import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
+import SubVariationsListScreen from "./screens/SubVariationsListScreen";
+import SubVariationsEditScreen from "./screens/SubVariationsEditScreen";
+import VariationsListScreen from "./screens/VaraiationListScreen";
+import VariationsEditScreen from "./screens/VariationsEditScreen";
+import CategoryListScreen from "./screens/CategoryListScreen";
+import CategoryEditScreen from "./screens/CategoryEditScreen";
+
 import OrderListScreen from "./screens/OrderListScreen";
 import LoginScreen from "./screens/LoginScreen";
+
 function App() {
   return (
     <div className="bg-body">
@@ -47,6 +55,34 @@ function App() {
           <Route path="/login" component={LoginScreen} />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
           <Route path="/admin/orderlist" component={OrderListScreen} />
+
+          <Route
+            path="/admin/subvariationslist"
+            component={SubVariationsListScreen}
+            exact
+          />
+          <Route
+            path="/admin/subvariation/:id/edit"
+            component={SubVariationsEditScreen}
+          />
+          <Route
+            path="/admin/variationslist"
+            component={VariationsListScreen}
+            exact
+          />
+          <Route
+            path="/admin/variation/:id/edit"
+            component={VariationsEditScreen}
+          />
+          <Route
+            path="/admin/categorylist"
+            component={CategoryListScreen}
+            exact
+          />
+          <Route
+            path="/admin/category/:id/edit"
+            component={CategoryEditScreen}
+          />
         </main>
         <Footer />
       </Router>

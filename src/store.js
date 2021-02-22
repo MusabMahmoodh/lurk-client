@@ -22,6 +22,27 @@ import {
   userDeleteReducer,
   userUpdateReducer,
 } from "./reducers/userReducers";
+import {
+  SubVariationListReducer,
+  SubVariationsDetailsReducer,
+  SubVariationsDeleteReducer,
+  SubVariationsCreateReducer,
+  SubVariationsUpdateReducer,
+} from "./reducers/subVariationsReducers";
+import {
+  variationListReducer,
+  variationsDetailsReducer,
+  variationsDeleteReducer,
+  variationsCreateReducer,
+  variationsUpdateReducer,
+} from "./reducers/variationsReducers";
+import {
+  categoryListReducer,
+  categoryDetailsReducer,
+  categoryDeleteReducer,
+  categoryCreateReducer,
+  categoryUpdateReducer,
+} from "./reducers/categoryReducers";
 
 // import {
 //     orderCreateReducer,
@@ -38,6 +59,22 @@ const reducer = combineReducers({
   productDelete: productDeleteReducer,
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
+  categoryList: categoryListReducer,
+  categoryDetails: categoryDetailsReducer,
+  categoryDelete: categoryDeleteReducer,
+  categoryCreate: categoryCreateReducer,
+  categoryUpdate: categoryUpdateReducer,
+
+  variationsList: variationListReducer,
+  variationsDetails: variationsDetailsReducer,
+  variationsDelete: variationsDeleteReducer,
+  variationsCreate: variationsCreateReducer,
+  variationsUpdate: variationsUpdateReducer,
+  subVariationsList: SubVariationListReducer,
+  subVariationsDetails: SubVariationsDetailsReducer,
+  subVariationsDelete: SubVariationsDeleteReducer,
+  subVariationsCreate: SubVariationsCreateReducer,
+  subVariationsUpdate: SubVariationsUpdateReducer,
   // productReviewCreate: productReviewCreateReducer,
   // productTopRated: productTopRatedReducer,
   cart: cartReducer,
