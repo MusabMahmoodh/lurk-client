@@ -19,8 +19,12 @@ const RecommendedCarousal = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <div
-          className="scrolling-wrapper p-1"
-          style={{ marginBottom: "3px", background: "#d4acd4" }}>
+          className="scrolling-wrapper p-2"
+          style={{
+            marginBottom: "3px",
+            background: "#fff",
+            borderRadius: "10px",
+          }}>
           {productsTop &&
             productsTop.map((product) => <RecommendedCard product={product} />)}
         </div>

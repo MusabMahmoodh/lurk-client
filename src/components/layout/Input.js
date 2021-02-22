@@ -34,8 +34,11 @@ const Input = () => {
     dispatch(categoryDetails(currentCategory));
     if (category) {
       history.push(`/?category=${category}&page=1`);
-    } else {
-      history.push(`/`);
+    } else if (
+      categoryName === "All" &&
+      history.location.pathname !== "/login"
+    ) {
+      history.push("/");
     }
   }, [category]);
   return (

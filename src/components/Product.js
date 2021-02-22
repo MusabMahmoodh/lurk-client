@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 
 function Product({ product }) {
   return (
-    <Card className="p-1 rounded" style={{ margin: "auto", height: "100%" }}>
+    <Card
+      className="p-1 rounded"
+      style={{
+        margin: "auto",
+        height: "100%",
+        boxShadow: " 1px 2px 5px 0px rgba(0,0,0,0.75)",
+      }}>
       <Link to={`/product/${product._id}`}>
         <Card.Img className=" p-1 rounded" src={product.image} />
       </Link>

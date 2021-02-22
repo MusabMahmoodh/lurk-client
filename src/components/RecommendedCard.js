@@ -11,6 +11,7 @@ function RecommendedCard({ product }) {
         margin: "3px",
         width: "100px",
         marginBottom: 0,
+        background: "#ecf0f1",
       }}>
       <Link to={`/product/${product._id}`}>
         <Card.Img

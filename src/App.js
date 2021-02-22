@@ -20,7 +20,7 @@ import VariationsListScreen from "./screens/VaraiationListScreen";
 import VariationsEditScreen from "./screens/VariationsEditScreen";
 import CategoryListScreen from "./screens/CategoryListScreen";
 import CategoryEditScreen from "./screens/CategoryEditScreen";
-
+import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import LoginScreen from "./screens/LoginScreen";
 import OrderScreen from "./screens/OrderScreen";
@@ -33,6 +33,7 @@ function App() {
 
         <main className="container m-auto">
           <CircleMenu />
+          <Route path="/login" component={LoginScreen} />
           <Route path="/" component={HomeScreen} exact />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
@@ -53,9 +54,13 @@ function App() {
             component={ProductListScreen}
             exact
           />
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
-          <Route path="/admin/orderlist" component={OrderListScreen} />
+
+          <Route
+            exact
+            path="/admin/product/:id/edit"
+            component={ProductEditScreen}
+          />
+          <Route exact path="/admin/orderlist" component={OrderListScreen} />
 
           <Route
             path="/admin/subvariationslist"
@@ -65,6 +70,7 @@ function App() {
           <Route
             path="/admin/subvariation/:id/edit"
             component={SubVariationsEditScreen}
+            exact
           />
           <Route
             path="/admin/variationslist"
@@ -74,7 +80,9 @@ function App() {
           <Route
             path="/admin/variation/:id/edit"
             component={VariationsEditScreen}
+            exact
           />
+          <Route exact path="/profile" component={ProfileScreen} />
           <Route
             path="/admin/categorylist"
             component={CategoryListScreen}
@@ -83,8 +91,9 @@ function App() {
           <Route
             path="/admin/category/:id/edit"
             component={CategoryEditScreen}
+            exact
           />
-          <Route path="/order/:id" component={OrderScreen} />
+          <Route path="/order/:id" component={OrderScreen} exact />
         </main>
         <Footer />
       </Router>
