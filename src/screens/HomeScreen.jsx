@@ -26,7 +26,6 @@ function HomeScreen({ history }) {
   return (
     <div className="py-0">
       {!keyword && <ProductCarousel />}
-
       <h5 className="my-2">Lurk collection</h5>
       {loading ? (
         <Loader />
@@ -34,9 +33,7 @@ function HomeScreen({ history }) {
         <Message variant="danger">{error}</Message>
       ) : (
         <div>
-          {products.products && (
-            <RecommendedCarousal products={products.products} />
-          )}
+          {productsTop && <RecommendedCarousal products={productsTop} />}
 
           <hr style={{ marginTop: 0 }}></hr>
           <Row style={{ width: "100%", margin: "auto" }}>

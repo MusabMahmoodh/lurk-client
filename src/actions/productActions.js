@@ -47,9 +47,9 @@ export const listProducts = (keyword = "") => async (dispatch) => {
 export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP_REQUEST });
-    console.log("Here");
+    // console.log("Here");
     const { data } = await axios.get(`/api/products/top/`);
-    console.log(data);
+    // console.log(data);
     dispatch({
       type: PRODUCT_TOP_SUCCESS,
       payload: data,
