@@ -6,6 +6,8 @@ function Paginate({ pages, page, keyword = "", isAdmin = false }) {
   var objURL = {
     keyword: "",
     category: "",
+    variation: "",
+    subVariation: "",
   };
   if (keyword) {
     // keyword = keyword.split("?keyword=")[1].split("&")[0];
@@ -28,12 +30,16 @@ function Paginate({ pages, page, keyword = "", isAdmin = false }) {
               !isAdmin
                 ? `/?keyword=${objURL.keyword && objURL.keyword}&category=${
                     objURL.category && objURL.category
-                  }&page=${x + 1}`
+                  }&page=${x + 1}&variation=${
+                    objURL.variation && objURL.variation
+                  }&subVariation=${objURL.subVariation && objURL.subVariation}`
                 : `/admin/productlist/?keyword=${
                     objURL.keyword && objURL.keyword
                   }&category=${objURL.category && objURL.category}&page=${
                     x + 1
-                  }`
+                  }&variation=${
+                    objURL.variation && objURL.variation
+                  }&subVariation=${objURL.subVariation && objURL.subVariation}`
             }>
             <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
           </LinkContainer>

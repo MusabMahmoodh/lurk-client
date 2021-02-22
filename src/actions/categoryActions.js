@@ -38,11 +38,12 @@ export const listCategories = () => async (dispatch) => {
   }
 };
 
-export const categoryDetails = (id) => async (dispatch) => {
+export const categoryDetails = (data) => async (dispatch) => {
+  console.log("Here", data);
   try {
     dispatch({ type: CATEGORY_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/category/${id}`);
+    // const { data } = await axios.get(`/api/category/${id}`);
 
     dispatch({
       type: CATEGORY_DETAILS_SUCCESS,
