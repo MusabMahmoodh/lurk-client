@@ -28,16 +28,17 @@ function RecommendedCard({ product }) {
           <Badge variant="primary">{product.brand}</Badge>{" "}
         </Card.Text>
         <LinkContainer to={`/product/${product._id}`}>
-          <Card.Title
-            as="div"
-            style={{
-              marginBottom: 0,
-              width: "100%",
-              marginBottom: "-10px",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}>
-            <strong style={{ width: "100%" }}>{product.name}</strong>
+          <Card.Title as="div">
+            <p
+              style={{
+                marginBottom: 0,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+
+                textOverflow: "ellipsis",
+              }}>
+              {product.name}
+            </p>
           </Card.Title>
         </LinkContainer>
         <Card.Text

@@ -215,6 +215,7 @@ const ProductEditScreen = ({ match, history }) => {
                   as="select"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}>
+                  <option>---</option>
                   {categories.category &&
                     categories.category.map((sv) => (
                       <option value={sv._id}>{sv.name}</option>
@@ -231,6 +232,7 @@ const ProductEditScreen = ({ match, history }) => {
                   as="select"
                   value={variation}
                   onChange={(e) => setVariation(e.target.value)}>
+                  <option>---</option>
                   {currentCategory[0].variations &&
                     currentCategory[0].variations.map((sv) => (
                       <option value={sv._id}>{sv.name}</option>
@@ -245,10 +247,12 @@ const ProductEditScreen = ({ match, history }) => {
                 <Form.Label>
                   Sub Variation <small>(eg:Blue,120 page , 240 page...)</small>
                 </Form.Label>
+
                 <Form.Control
                   as="select"
                   value={subVariation}
                   onChange={(e) => setSubVariation(e.target.value)}>
+                  <option>---</option>
                   {currentVariation[0].subVariations &&
                     currentVariation[0].subVariations.map((sv) => (
                       <option value={sv._id}>{sv.name}</option>
