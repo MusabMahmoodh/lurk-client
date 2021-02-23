@@ -7,6 +7,7 @@ import Message from "./Message";
 import BgImg from "../assets/bg-image.jpg";
 // import { listTopProducts } from "../actions/productActions";
 
+// Diplay adds
 function ProductCarousel() {
   const dispatch = useDispatch();
   const products = [
