@@ -30,6 +30,13 @@ import {
   SubVariationsUpdateReducer,
 } from "./reducers/subVariationsReducers";
 import {
+  AdListReducer,
+  AdDetailsReducer,
+  AdDeleteReducer,
+  AdCreateReducer,
+  ADsUpdateReducer,
+} from "./reducers/adReducers";
+import {
   variationListReducer,
   variationsDetailsReducer,
   variationsDeleteReducer,
@@ -75,6 +82,12 @@ const reducer = combineReducers({
   subVariationsDelete: SubVariationsDeleteReducer,
   subVariationsCreate: SubVariationsCreateReducer,
   subVariationsUpdate: SubVariationsUpdateReducer,
+
+  adList: AdListReducer,
+  adDetails: AdDetailsReducer,
+  adDelete: AdDeleteReducer,
+  adCreate: AdCreateReducer,
+  adUpdate: ADsUpdateReducer,
   // productReviewCreate: productReviewCreateReducer,
   productTopRated: productTopRatedReducer,
   cart: cartReducer,

@@ -14,6 +14,8 @@ import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
+import AdListScreen from "./screens/AdListScreen";
+import AdEditScreen from "./screens/AdEditScreen";
 import SubVariationsListScreen from "./screens/SubVariationsListScreen";
 import SubVariationsEditScreen from "./screens/SubVariationsEditScreen";
 import VariationsListScreen from "./screens/VaraiationListScreen";
@@ -72,6 +74,8 @@ function App() {
             component={SubVariationsEditScreen}
             exact
           />
+          <Route path="/admin/adslist" component={AdListScreen} exact />
+          <Route path="/admin/ads/:id/edit" component={AdEditScreen} exact />
           <Route
             path="/admin/variationslist"
             component={VariationsListScreen}
