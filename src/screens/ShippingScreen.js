@@ -12,7 +12,9 @@ function ShippingScreen({ history }) {
   const dispatch = useDispatch();
 
   const [name, setName] = useState(shippingAddress.name);
-  const [contact, setContact] = useState(shippingAddress.contact);
+  const [contact, setContact] = useState(
+    shippingAddress.contact ? shippingAddress.contact : "94"
+  );
   const [email, setEmail] = useState(shippingAddress.email);
   const [address, setAddress] = useState(shippingAddress.address);
   const [nearestLandMark, setNearestLandMark] = useState(
@@ -43,11 +45,13 @@ function ShippingScreen({ history }) {
             onChange={(e) => setName(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId="contactNo">
-          <Form.Label>Contact Number</Form.Label>
+          <Form.Label>Contact Number</Form.Label>{" "}
+          <small>(Format:*947xxxxxxxx)</small>
           <Form.Control
             required
             type="text"
-            placeholder="Enter contact number"
+            placeholder="947xxxxxxxx"
+            pattern="^(947)\d{8}"
             value={contact ? contact : ""}
             onChange={(e) => setContact(e.target.value)}></Form.Control>
         </Form.Group>
@@ -71,11 +75,12 @@ function ShippingScreen({ history }) {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>nearestLandMark</Form.Label>
+          <Form.Label>NearestLandMark</Form.Label>{" "}
+          <small>(Example:HNP,BOC,cargills..)</small>
           <Form.Control
             required
             type="text"
-            placeholder="Enter city"
+            placeholder="Enter nearest locations"
             value={nearestLandMark ? nearestLandMark : ""}
             onChange={(e) => setNearestLandMark(e.target.value)}></Form.Control>
         </Form.Group>

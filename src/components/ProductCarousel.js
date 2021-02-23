@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Carousel, Image } from "react-bootstrap";
 import Loader from "./Loader";
 import Message from "./Message";
+import BgImg from "../assets/bg-image.jpg";
 // import { listTopProducts } from "../actions/productActions";
 
 function ProductCarousel() {
@@ -11,7 +12,7 @@ function ProductCarousel() {
   const products = [
     {
       image:
-        "https://images.unsplash.com/photo-1527734839130-09fdf5d67316?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fyb3VzZWx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1800&q=60",
+        "https://cdn.pixabay.com/photo/2015/08/23/09/22/banner-902587_960_720.jpg",
     },
     {
       image:
@@ -35,7 +36,7 @@ function ProductCarousel() {
   //     <Message variant="danger">{error}</Message>
   //   ) :
   return (
-    <Carousel pause="hover" className="bg-dark">
+    <Carousel pause="hover" style={{ backgroundImage: `url(${BgImg})` }}>
       {/* {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>

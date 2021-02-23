@@ -50,7 +50,7 @@ function CartScreen({ match, location, history }) {
         ) : (
           <ListGroup variant="flush">
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product} className="bg-light text-dark">
+              <ListGroup.Item key={item.product} className="bg-dark text-light">
                 <Row>
                   <Col xs={4} md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />

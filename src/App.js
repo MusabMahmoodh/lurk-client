@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Header position="sticky" />
 
-        <main className="container m-auto">
+        <main className="container m-auto pb-3">
           <CircleMenu />
           <Route path="/login" component={LoginScreen} />
           <Route path="/" component={HomeScreen} exact />

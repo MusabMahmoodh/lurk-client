@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 // import Rating from "./Rating";
 import { Link } from "react-router-dom";
 
@@ -12,28 +13,36 @@ function RecommendedCard({ product }) {
         width: "100px",
         marginBottom: 0,
         background: "#ecf0f1",
+        color: "#7b8a8b",
       }}>
-      <Link to={`/product/${product._id}`}>
+      <LinkContainer to={`/product/${product._id}`}>
         <Card.Img
           className=" p-1 rounded"
           src={product.image}
           style={{ height: "60px" }}
         />
-      </Link>
+      </LinkContainer>
 
       <Card.Body style={{ marginTop: "2px", padding: 0 }}>
-        <Card.Title
+        <Card.Text as="div">
+          <Badge variant="primary">{product.brand}</Badge>{" "}
+        </Card.Text>
+        <LinkContainer to={`/product/${product._id}`}>
+          <Card.Title
+            as="div"
+            style={{
+              marginBottom: 0,
+              width: "100%",
+              marginBottom: "-10px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}>
+            <strong style={{ width: "100%" }}>{product.name}</strong>
+          </Card.Title>
+        </LinkContainer>
+        <Card.Text
           as="div"
-          style={{
-            marginBottom: 0,
-            width: "100%",
-
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}>
-          <strong style={{ width: "100%" }}>{product.name}</strong>
-        </Card.Title>
-        <Card.Text as="div" style={{ marginTop: 0, marginBottom: 0 }}>
+          style={{ marginTop: 0, marginBottom: 0, marginTop: "-10px" }}>
           RS. {product.newPrice}
           <strike
             style={{

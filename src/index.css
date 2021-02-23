@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 main{
   min-height: 80vh;
  
 }
-.bg-body{
-  background: #f0f4f5;
-}
 body {
+	font-family: 'Open Sans', sans-serif;
+  }
+.container {
 	background-color: #e6f2f3;
   }
   .circular-menu {
@@ -173,3 +174,75 @@ body {
 .scrolling-wrapper::-webkit-scrollbar {
 	display: none;
 }
+
+/* Text anim */
+
+.text-anime{
+	color: #fff;
+	height: 100%;
+	overflow: hidden;
+	background: #333641;
+}
+
+.text-anime {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.text-anime-container {
+	background: 50% 100%/50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-size: 10vw;
+	
+	animation: reveal 3000ms ease-in-out forwards 200ms,
+ glow 2500ms linear infinite 2000ms;
+}
+
+@keyframes reveal {
+	80% {
+		letter-spacing: 8px;
+	}
+
+	100% {
+		background-size: 300% 300%;
+	}
+}
+
+@keyframes glow {
+	40% {
+		text-shadow: 0 0 8px #fff;
+	}
+}
+/* Footer */
+
+
+
+
+.copyright-area{
+	background: #202020;
+	padding: 25px 0;
+	width:100%
+  }
+  .copyright-text p {
+	margin: 0;
+	font-size: 14px;
+	color: #878787;
+  }
+  .copyright-text p a{
+	color: #6f42c1;
+  }
+  /* .footer-menu li {
+	display: inline-block;
+	margin-left: 20px;
+  } */
+  .footer-menu li:hover a{
+	color: #9583b8;
+  }
+  .footer-menu li a {
+	font-size: 14px;
+	color: #878787;
+  }

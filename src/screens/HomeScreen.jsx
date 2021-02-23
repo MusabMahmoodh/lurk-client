@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
+
+import PagePreLoader from "../components/PagePreLoader";
 import Product from "../components/Product";
-import Loader from "../components/Loader";
+
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
@@ -27,11 +29,11 @@ function HomeScreen({ history }) {
     <div className="py-0">
       {!keyword && <ProductCarousel />}
       {Object.keys(category).length > 1 && <SubMenu category={category} />}
-      <h5 className="my-2">Lurk collection</h5>
+      <h5 className="py-4 ">Lurk collection</h5>
       <RecommendedCarousal />
 
       {loading ? (
-        <Loader />
+        <PagePreLoader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (

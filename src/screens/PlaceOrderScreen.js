@@ -83,7 +83,7 @@ function PlaceOrderScreen({ history }) {
               ) : (
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index} className="bg-light text-dark">
+                    <ListGroup.Item key={index} className="bg-dark text-light">
                       <Row>
                         <Col md={1}>
                           <Image
