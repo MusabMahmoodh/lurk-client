@@ -17,11 +17,12 @@ import {
   CATEGORY_UPDATE_FAIL,
 } from "../constants/categoryConstants";
 
+import { SERVER_URL } from "../constants/serverAPI";
 export const listCategories = () => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/category/`);
+    const { data } = await axios.get(`${SERVER_URL}/api/category/`);
     // console.log(data);
     dispatch({
       type: CATEGORY_LIST_SUCCESS,
@@ -43,7 +44,7 @@ export const categoryDetails = (data) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_DETAILS_REQUEST });
 
-    // const { data } = await axios.get(`/api/category/${id}`);
+    // const { data } = await axios.get(`${SERVER_URL}/api/category/${id}`);
 
     dispatch({
       type: CATEGORY_DETAILS_SUCCESS,
@@ -77,7 +78,10 @@ export const deleteCategory = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/category/${id}/`, config);
+    const { data } = await axios.delete(
+      `${SERVER_URL}/api/category/${id}/`,
+      config
+    );
 
     dispatch({
       type: CATEGORY_DELETE_SUCCESS,
@@ -110,7 +114,11 @@ export const createCategory = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/category/`, {}, config);
+    const { data } = await axios.post(
+      `${SERVER_URL}/api/category/`,
+      {},
+      config
+    );
     dispatch({
       type: CATEGORY_CREATE_SUCCESS,
       payload: data,
@@ -144,7 +152,7 @@ export const updateCategory = (category) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/category/${category._id}`,
+      `${SERVER_URL}/api/category/${category._id}`,
       category,
       config
     );

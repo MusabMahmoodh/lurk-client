@@ -16,12 +16,12 @@ import {
   VARIATION_UPDATE_SUCCESS,
   VARIATION_UPDATE_FAIL,
 } from "../constants/variationsConst";
-
+import { SERVER_URL } from "../constants/serverAPI";
 export const listVariations = () => async (dispatch) => {
   try {
     dispatch({ type: VARIATION_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/variations/`);
+    const { data } = await axios.get(`${SERVER_URL}/api/variations/`);
     // console.log(data);
     dispatch({
       type: VARIATION_LIST_SUCCESS,
@@ -42,7 +42,7 @@ export const variationDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: VARIATION_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/variations/${id}`);
+    const { data } = await axios.get(`${SERVER_URL}/api/variations/${id}`);
 
     dispatch({
       type: VARIATION_DETAILS_SUCCESS,
@@ -76,7 +76,10 @@ export const deleteVariation = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/variations/${id}/`, config);
+    const { data } = await axios.delete(
+      `${SERVER_URL}/api/variations/${id}/`,
+      config
+    );
 
     dispatch({
       type: VARIATION_DELETE_SUCCESS,
@@ -109,7 +112,11 @@ export const createVariations = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/variations/`, {}, config);
+    const { data } = await axios.post(
+      `${SERVER_URL}/api/variations/`,
+      {},
+      config
+    );
     dispatch({
       type: VARIATION_CREATE_SUCCESS,
       payload: data,
@@ -143,7 +150,7 @@ export const updateVariation = (variation) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/variations/${variation._id}`,
+      `${SERVER_URL}/api/variations/${variation._id}`,
       variation,
       config
     );

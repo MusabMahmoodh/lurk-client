@@ -16,12 +16,12 @@ import {
   SUBVARIATION_UPDATE_SUCCESS,
   SUBVARIATION_UPDATE_FAIL,
 } from "../constants/subVariationsConstants";
-
+import { SERVER_URL } from "../constants/serverAPI";
 export const listSubVariations = () => async (dispatch) => {
   try {
     dispatch({ type: SUBVARIATION_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/variations/sub`);
+    const { data } = await axios.get(`${SERVER_URL}/api/variations/sub`);
     console.log(data);
     dispatch({
       type: SUBVARIATION_LIST_SUCCESS,
@@ -42,7 +42,7 @@ export const subVariationDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: SUBVARIATION_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/variations/sub/${id}`);
+    const { data } = await axios.get(`${SERVER_URL}/api/variations/sub/${id}`);
 
     dispatch({
       type: SUBVARIATION_DETAILS_SUCCESS,
@@ -76,7 +76,10 @@ export const deleteSubVariation = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/variations/sub/${id}/`, config);
+    const { data } = await axios.delete(
+      `${SERVER_URL}/api/variations/sub/${id}/`,
+      config
+    );
 
     dispatch({
       type: SUBVARIATION_DELETE_SUCCESS,
@@ -109,7 +112,11 @@ export const createSubVariations = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/variations/sub`, {}, config);
+    const { data } = await axios.post(
+      `${SERVER_URL}/api/variations/sub`,
+      {},
+      config
+    );
     dispatch({
       type: SUBVARIATION_CREATE_SUCCESS,
       payload: data,
@@ -146,7 +153,7 @@ export const updateSubVariation = (subVariation) => async (
     };
 
     const { data } = await axios.put(
-      `/api/variations/sub/${subVariation._id}`,
+      `${SERVER_URL}/api/variations/sub/${subVariation._id}`,
       subVariation,
       config
     );
