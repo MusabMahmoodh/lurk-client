@@ -44,7 +44,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href="https://wa.me/94772421363">
+                    href="https://wa.me/94768306127">
                     Musab Mahmoodh
                   </a>
                 </p>

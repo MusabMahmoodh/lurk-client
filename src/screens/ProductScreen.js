@@ -36,7 +36,7 @@ const ProductScreen = ({ match, history }) => {
 
   return (
     <div>
-      <Link to="/" className="btn btn-light my-3">
+      <Link to="/" className="btn btn-outline-dark my-3">
         Go Back
       </Link>
       {loading ? (

@@ -13,21 +13,12 @@ const PagePreLoader = () => {
         right: "0",
       }}
       className="text-anime-container">
-      <div className="text-anime">
-        LURK <div></div>
-        <small style={{ fontSize: ".3rem", display: "inline" }}>
-          We are different. We are simple
-        </small>
-        <small style={{ fontSize: ".3rem", display: "inline" }}>
-          We are simple
-        </small>
-        <small style={{ fontSize: ".3rem", display: "inline" }}>
-          We are inexpensive.
-        </small>
-        <small style={{ fontSize: ".5rem", display: "inline" }}>
-          You're welcomed. World of LURK.
-        </small>
-      </div>
+      <h5 className="text-anime">
+        WELCOME TO{" "}
+        <b>
+          <u>LURK</u>
+        </b>
+      </h5>
     </div>
   );
 };

@@ -29,7 +29,7 @@ function HomeScreen({ history }) {
     <div className="py-0">
       {!keyword && <ProductCarousel />}
       {Object.keys(category).length > 1 && <SubMenu category={category} />}
-      <h5 className="py-4 ">Lurk collection</h5>
+      <h5 className="py-4 text-center">LURK recommendations</h5>
       <RecommendedCarousal />
 
       {loading ? (
@@ -38,7 +38,9 @@ function HomeScreen({ history }) {
         <Message variant="danger">{error}</Message>
       ) : (
         <div>
+          <h5 className="text-center">Latest products</h5>
           <hr style={{ marginTop: 0 }}></hr>
+
           <Row style={{ width: "100%", margin: "auto" }}>
             {products.products &&
               products.products.map((product) => (
