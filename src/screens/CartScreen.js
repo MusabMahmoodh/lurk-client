@@ -99,7 +99,7 @@ function CartScreen({ match, location, history }) {
                             }}>
                             <small
                               style={{ position: "absolute", right: "2px" }}>
-                              Rs {item.price * item.qty}
+                              Rs {item.price * item.qty}.00
                             </small>
                           </Col>
                         </Row>
@@ -160,7 +160,6 @@ function CartScreen({ match, location, history }) {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
-              .00
             </ListGroup.Item>
           </ListGroup>
 
