@@ -31,14 +31,14 @@ function Product({ product }) {
           <strong>{product.name}</strong>
         </Card.Title>
         <Card.Text as="div">
-          Rs.{product.newPrice}
+          Rs.{product.newPrice}.00
           <strike
             style={{
               color: "red",
 
               marginLeft: "10px",
             }}>
-            <small>Rs.{product.price}</small>
+            <small>Rs.{product.price}.00</small>
           </strike>
         </Card.Text>
 

@@ -20,7 +20,7 @@ const SubMenu = (category) => {
     }
   };
   return (
-    <div className="py-2">
+    <div>
       {category.category.variations.length > 1 &&
         category.category.variations.map((vari) => (
           <>

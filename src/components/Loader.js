@@ -6,9 +6,11 @@ function Loader() {
     <Spinner
       animation="border"
       role="status"
+      size="sm"
+      variant="info"
       style={{
-        height: "100px",
-        width: "100px",
+        height: "80px",
+        width: "80px",
         margin: "auto",
         display: "block",
       }}>

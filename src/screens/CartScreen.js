@@ -47,7 +47,9 @@ function CartScreen({ match, location, history }) {
       </Link>
       <Col xs={12}>
         <h2 className="pb-2 ">Shopping Cart</h2>
-        <small className="text-danger">Minimum order value Rs.500</small>
+        <small className="text-danger">
+          <strong>Minimum order value Rs.500.00</strong>
+        </small>
       </Col>
 
       <Col md={8}>
@@ -84,7 +86,7 @@ function CartScreen({ match, location, history }) {
                         <Row style={{ color: "white" }}>
                           <Col xs={6}>
                             <small>
-                              Rs.{item.price}
+                              Rs.{item.price}.00
                               {"    "}
                               <span style={{ color: "#95a5a6" }}>x</span>{" "}
                               {item.qty}{" "}
@@ -158,6 +160,7 @@ function CartScreen({ match, location, history }) {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
+              .00
             </ListGroup.Item>
           </ListGroup>
 

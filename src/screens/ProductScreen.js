@@ -45,34 +45,47 @@ const ProductScreen = ({ match, history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <Row>
-          <Col md={6}>
+          <Col xs={6} md={6}>
             <Image src={product.image} alt={product.name} fluid />
+
+            <Button
+              onClick={addToCartHandler}
+              className="d-block btn-block d-sm-none"
+              disabled={product.isAvailable == 0}
+              style={{ marginTop: "10px" }}
+              variant={product.isAvailable ? "success" : "danger"}
+              type="button">
+              {product.isAvailable ? "Add to Cart" : "Out of stock"}
+            </Button>
           </Col>
 
-          <Col md={3}>
+          <Col xs={6} md={3}>
             <ListGroup variant="flush">
               <ListGroup.Item className="bg-light text-dark">
                 <h3>{product.name}</h3>
               </ListGroup.Item>
 
               <ListGroup.Item className="bg-light text-dark">
-                Price: Rs.{product.newPrice}
+                Selling Price: <strong>Rs.{product.newPrice}.00</strong>
+              </ListGroup.Item>
+              <ListGroup.Item className="bg-light text-dark">
+                Market Price: <small>Rs.{product.price}.00</small>
               </ListGroup.Item>
 
               <ListGroup.Item className="bg-light text-dark">
-                Description: {product.description}
+                Description: <small>{product.description}</small>
               </ListGroup.Item>
             </ListGroup>
           </Col>
 
-          <Col md={3}>
+          <Col xs={12} md={3}>
             <Card>
               <ListGroup variant="flush">
                 <ListGroup.Item className="bg-light text-dark">
                   <Row>
                     <Col>Price:</Col>
                     <Col>
-                      <strong>Rs.{product.newPrice}</strong>
+                      <strong>Rs.{product.newPrice}.00</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -108,10 +121,11 @@ const ProductScreen = ({ match, history }) => {
                 <ListGroup.Item className="bg-light text-dark">
                   <Button
                     onClick={addToCartHandler}
-                    className="btn-block"
+                    className="btn-block d-none d-sm-block"
                     disabled={product.isAvailable == 0}
+                    variant={product.isAvailable ? "success" : "danger"}
                     type="button">
-                    Add to Cart
+                    {product.isAvailable ? "Add to Cart" : "Out of stock"}
                   </Button>
                 </ListGroup.Item>
               </ListGroup>

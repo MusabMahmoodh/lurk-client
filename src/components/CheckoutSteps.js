@@ -6,6 +6,15 @@ function CheckoutSteps({ step1, step2, step3, step4 }) {
   return (
     <Nav className="justify-content-center mb-4">
       <Nav.Item>
+        {step1 ? (
+          <LinkContainer to="/">
+            <Nav.Link>Store</Nav.Link>
+          </LinkContainer>
+        ) : (
+          <Nav.Link disabled>Store</Nav.Link>
+        )}
+      </Nav.Item>
+      <Nav.Item>
         {step2 ? (
           <LinkContainer to="/shipping">
             <Nav.Link>Shipping</Nav.Link>

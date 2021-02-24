@@ -55,64 +55,6 @@ function PlaceOrderScreen({ history }) {
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
-        <Col md={8}>
-          <ListGroup variant="flush">
-            <ListGroup.Item className="bg-light text-dark">
-              <h3>Shipping</h3>
-
-              <p>
-                <strong>Shipping: </strong>
-                {cart.shippingAddress.address},<br></br>
-                <strong>Nearest Land Mark: </strong>
-                {cart.shippingAddress.nearestLandMark},
-              </p>
-            </ListGroup.Item>
-
-            <ListGroup.Item className="bg-light text-dark">
-              <h3>Payment Method</h3>
-              <p>
-                <strong>Method: </strong>
-                {cart.paymentMethod}
-              </p>
-            </ListGroup.Item>
-
-            <ListGroup.Item className="bg-light text-dark">
-              <h3>Order Items</h3>
-              {cart.cartItems.length === 0 ? (
-                <Message variant="info">Your cart is empty</Message>
-              ) : (
-                <ListGroup variant="flush">
-                  {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index} className="bg-dark text-light">
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-
-                        <Col md={4}>
-                          {item.qty} X Rs.{item.price} = Rs.
-                          {(item.qty * item.price).toFixed(2)}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-
         <Col md={4}>
           <Card>
             <ListGroup variant="flush">
@@ -120,19 +62,12 @@ function PlaceOrderScreen({ history }) {
                 <h3>Order Summary</h3>
               </ListGroup.Item>
 
-              <ListGroup.Item className="bg-light text-dark">
+              {/* <ListGroup.Item className="bg-light text-dark">
                 <Row>
-                  <Col>Items:</Col>
-                  <Col>Rs.{cart.itemsPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-
-              <ListGroup.Item className="bg-light text-dark">
-                <Row>
-                  <Col>Shipping:</Col>
+                  <Col><strShipping:</Col>
                   <Col>Free</Col>
                 </Row>
-              </ListGroup.Item>
+              </ListGroup.Item> */}
 
               {/* <ListGroup.Item>
                 <Row>
@@ -142,9 +77,28 @@ function PlaceOrderScreen({ history }) {
               </ListGroup.Item> */}
 
               <ListGroup.Item className="bg-light text-dark">
-                <Row>
-                  <Col>Total:</Col>
-                  <Col>Rs.{cart.totalPrice}</Col>
+                {cart.cartItems.map((item, index) => (
+                  <Row style={{ marginBottom: "5px" }}>
+                    <Col xs={5}>
+                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    </Col>
+
+                    <Col xs={7}>
+                      <small>
+                        {item.qty} X Rs.{item.price}.00 = Rs.
+                        {(item.qty * item.price).toFixed(2)}.00
+                      </small>
+                    </Col>
+                  </Row>
+                ))}
+
+                <Row style={{ borderTop: "solid grey 1px" }}>
+                  <Col>
+                    <strong>Total:</strong>
+                  </Col>
+                  <Col>
+                    <strong>Rs.{cart.totalPrice}.00</strong>{" "}
+                  </Col>
                 </Row>
               </ListGroup.Item>
 
@@ -163,6 +117,62 @@ function PlaceOrderScreen({ history }) {
               </ListGroup.Item>
             </ListGroup>
           </Card>
+        </Col>
+        <Col md={8}>
+          <ListGroup variant="flush">
+            <ListGroup.Item className="bg-light text-dark">
+              <p>
+                <strong>Delivery address: </strong>
+                {cart.shippingAddress.address},<br></br>
+                <strong>Nearest Land Mark: </strong>
+                {cart.shippingAddress.nearestLandMark},
+              </p>
+            </ListGroup.Item>
+
+            <ListGroup.Item className="bg-light text-dark">
+              <p>
+                <strong>Payment Method: </strong>
+                {cart.paymentMethod}
+              </p>
+            </ListGroup.Item>
+
+            <ListGroup.Item className="bg-light text-dark">
+              <p>
+                <strong>Order Items</strong>
+              </p>
+              {cart.cartItems.length === 0 ? (
+                <Message variant="info">Your cart is empty</Message>
+              ) : (
+                <ListGroup variant="flush">
+                  {cart.cartItems.map((item, index) => (
+                    <ListGroup.Item key={index} className="bg-dark text-light">
+                      <Row>
+                        <Col sm={2}>
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fluid
+                            rounded
+                          />
+                        </Col>
+
+                        <Col>
+                          <Link to={`/product/${item.product}`}>
+                            {item.name}
+                          </Link>
+                        </Col>
+
+                        <Col sm={4}>
+                          {item.qty} X Rs.{item.price}.00 = Rs.
+                          {(item.qty * item.price).toFixed(2)}.00
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              )}
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
       </Row>
     </div>

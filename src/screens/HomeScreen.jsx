@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 
@@ -28,22 +28,52 @@ function HomeScreen({ history }) {
 
   return (
     <div className="py-0">
-      {!keyword && <ProductCarousel />}
-      {Object.keys(category).length > 1 && <SubMenu category={category} />}
-      <h5 className="py-4 text-center">LURK recommendations</h5>
-      <RecommendedCarousal />
+      <ProductCarousel />
+
+      {!keyword && (
+        <>
+          <h5 className="py-4 text-center">LURK recommendations</h5>
+          <RecommendedCarousal />
+        </>
+      )}
+
       {loading ? (
-       
-          <Loader />
-       
+        <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
         <div>
-          <h5 className="text-center">Latest products</h5>
+          <h5 className="text-center py-3">Latest products</h5>
+          {Object.keys(category).length > 1 && <SubMenu category={category} />}
           <hr style={{ marginTop: 0 }}></hr>
 
           <Row style={{ width: "100%", margin: "auto" }}>
+            {products.products && products.products.length === 0 && (
+              <div style={{ margin: "auto", textAlign: "center" }}>
+                <Message variant="light">
+                  <h6>Search No Result</h6>
+                  We're sorry. We cannot find any matches for your search term.
+                  <p></p>
+                  <i
+                    class="fab fa-searchengin fa-lg"
+                    style={{ fontSize: "5rem" }}></i>
+                </Message>
+              </div>
+            )}
+            {keyword && products.products && (
+              <div
+                style={{
+                  marginTop: "-50px ",
+                  textAlign: "left",
+                  width: "100%",
+                }}>
+                <Message variant="light">
+                  <small>
+                    <strong>{products.products.length}</strong> Items found
+                  </small>
+                </Message>
+              </div>
+            )}
             {products.products &&
               products.products.map((product) => (
                 <Col
