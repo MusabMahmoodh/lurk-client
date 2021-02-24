@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 
 import PagePreLoader from "../components/PagePreLoader";
+import Loader from "../components/Loader";
 import Product from "../components/Product";
 
 import Message from "../components/Message";
@@ -25,15 +26,18 @@ function HomeScreen({ history }) {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
 
+=
+
   return (
     <div className="py-0">
       {!keyword && <ProductCarousel />}
       {Object.keys(category).length > 1 && <SubMenu category={category} />}
       <h5 className="py-4 text-center">LURK recommendations</h5>
       <RecommendedCarousal />
-
       {loading ? (
-        <PagePreLoader />
+       
+          <Loader />
+       
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
