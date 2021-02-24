@@ -45,35 +45,31 @@ const ProductScreen = ({ match, history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <Row>
-          <Col xs={6} md={6}>
+          <Col xs={12} md={6}>
             <Image src={product.image} alt={product.name} fluid />
-
-            <Button
-              onClick={addToCartHandler}
-              className="d-block btn-block d-sm-none"
-              disabled={product.isAvailable == 0}
-              style={{ marginTop: "10px" }}
-              variant={product.isAvailable ? "success" : "danger"}
-              type="button">
-              {product.isAvailable ? "Add to Cart" : "Out of stock"}
-            </Button>
           </Col>
 
-          <Col xs={6} md={3}>
+          <Col xs={12} md={3}>
             <ListGroup variant="flush">
               <ListGroup.Item className="bg-light text-dark">
                 <h3>{product.name}</h3>
+
+                <small>{product.description}</small>
               </ListGroup.Item>
 
               <ListGroup.Item className="bg-light text-dark">
                 Selling Price: <strong>Rs.{product.newPrice}.00</strong>
               </ListGroup.Item>
               <ListGroup.Item className="bg-light text-dark">
-                Market Price: <small>Rs.{product.price}.00</small>
-              </ListGroup.Item>
+                Market Price:{" "}
+                <strike
+                  style={{
+                    color: "red",
 
-              <ListGroup.Item className="bg-light text-dark">
-                Description: <small>{product.description}</small>
+                    marginLeft: "10px",
+                  }}>
+                  <small>Rs.{product.price}.00</small>
+                </strike>
               </ListGroup.Item>
             </ListGroup>
           </Col>
@@ -81,14 +77,6 @@ const ProductScreen = ({ match, history }) => {
           <Col xs={12} md={3}>
             <Card>
               <ListGroup variant="flush">
-                <ListGroup.Item className="bg-light text-dark">
-                  <Row>
-                    <Col>Price:</Col>
-                    <Col>
-                      <strong>Rs.{product.newPrice}.00</strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
                 <ListGroup.Item className="bg-light text-dark">
                   <Row>
                     <Col>Status:</Col>
@@ -106,6 +94,7 @@ const ProductScreen = ({ match, history }) => {
                         <InputGroup size="sm" className="mb-3">
                           <FormControl
                             aria-label="Quantity"
+                            style={{ color: "black" }}
                             aria-describedby="inputGroup-sizing-sm"
                             type="number"
                             min="0"
@@ -121,16 +110,48 @@ const ProductScreen = ({ match, history }) => {
                 <ListGroup.Item className="bg-light text-dark">
                   <Button
                     onClick={addToCartHandler}
-                    className="btn-block d-none d-sm-block"
+                    className="btn-block "
                     disabled={product.isAvailable == 0}
                     variant={product.isAvailable ? "success" : "danger"}
-                    type="button">
+                    type="button"
+                    className="d-sm-block d-none">
                     {product.isAvailable ? "Add to Cart" : "Out of stock"}
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
             </Card>
           </Col>
+          <div
+            style={{
+              position: "fixed",
+              bottom: "0",
+              zIndex: "456",
+              width: "100%",
+            }}
+            className="d-block d-sm-none">
+            <Row>
+              <Col xs={3}>
+                <Button
+                  className="btn-block"
+                  onClick={() => history.push("/")}
+                  variant="info">
+                  <i class="fas fa-store"></i>
+                </Button>
+              </Col>
+              <Col xs={7}>
+                <Button
+                  onClick={addToCartHandler}
+                  className="btn-block "
+                  disabled={product.isAvailable == 0}
+                  variant={product.isAvailable ? "success" : "danger"}
+                  type="button">
+                  <i class="fas fa-shopping-cart"></i>{" "}
+                  {product.isAvailable ? "Add to Cart" : "Out of stock"}
+                </Button>
+              </Col>
+              <Col xs={2}></Col>
+            </Row>
+          </div>
         </Row>
       )}
     </div>

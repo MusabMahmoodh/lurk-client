@@ -63,7 +63,7 @@ function HomeScreen({ history }) {
             {keyword && products.products && (
               <div
                 style={{
-                  marginTop: "0 ",
+                  marginTop: "0",
                   textAlign: "left",
                   width: "100%",
                 }}>

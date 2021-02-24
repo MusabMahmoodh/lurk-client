@@ -16,24 +16,20 @@ const Footer = () => {
             </Col>
 
             <Col className="text-center" xs={12} md={4}>
-              <div className="footer-menu">
-                <ul>
-                  <li>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://lurk.lk/store/terms">
-                      Terms And Condition
-                    </a>{" "}
-                    ||{" "}
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://lurk.lk/store/privacy">
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
+              <div className="footer-menu" style={{ color: "white" }}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://lurk.lk/store/terms">
+                  Terms And Condition
+                </a>{" "}
+                ||{" "}
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://lurk.lk/store/privacy">
+                  Privacy Policy
+                </a>
               </div>
             </Col>
             <Col className="text-center text-lg-right" xs={12} md={4}>
