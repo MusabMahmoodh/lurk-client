@@ -101,7 +101,7 @@ function PlaceOrderScreen({ history }) {
                         </Col>
 
                         <Col md={4}>
-                          {item.qty} X Rs. {item.price} = Rs.
+                          {item.qty} X Rs.{item.price} = Rs.
                           {(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
@@ -123,7 +123,7 @@ function PlaceOrderScreen({ history }) {
               <ListGroup.Item className="bg-light text-dark">
                 <Row>
                   <Col>Items:</Col>
-                  <Col>Rs. {cart.itemsPrice}</Col>
+                  <Col>Rs.{cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -144,7 +144,7 @@ function PlaceOrderScreen({ history }) {
               <ListGroup.Item className="bg-light text-dark">
                 <Row>
                   <Col>Total:</Col>
-                  <Col>Rs. {cart.totalPrice}</Col>
+                  <Col>Rs.{cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 

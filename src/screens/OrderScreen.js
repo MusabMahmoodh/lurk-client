@@ -55,7 +55,7 @@ const OrderScreen = ({ match, history }) => {
     //   const { data: clientId } = await axios.get("${SERVER_URL}/api/config/paypal");
     //   const script = document.createElement("script");
     //   script.type = "text/javascript";
-    //   script.src = `https://www.paypal.com/sdk/js?client-id=Rs. {clientId}`;
+    //   script.src = `https://www.paypal.com/sdk/js?client-id=Rs.{clientId}`;
     //   script.async = true;
     //   script.onload = () => {
     //     setSdkReady(true);
@@ -107,7 +107,7 @@ const OrderScreen = ({ match, history }) => {
               </p>
               <p>
                 <strong>Email: </strong>{" "}
-                <a href={`mailto:Rs. {order.shippingAddress.email}`}>
+                <a href={`mailto:Rs.{order.shippingAddress.email}`}>
                   {order.shippingAddress.email}
                 </a>
               </p>
@@ -159,12 +159,12 @@ const OrderScreen = ({ match, history }) => {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/Rs. {item.product}`}>
+                          <Link to={`/product/Rs.{item.product}`}>
                             {item.name}
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x Rs. {item.price} = Rs.{" "}
+                          {item.qty} x Rs.{item.price} = Rs.{" "}
                           {item.qty * item.price}
                         </Col>
                       </Row>
@@ -184,25 +184,25 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>Rs. {order.itemsPrice}</Col>
+                  <Col>Rs.{order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               {/* <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>Rs. {order.shippingPrice}</Col>
+                  <Col>Rs.{order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item> */}
               <ListGroup.Item>
                 {/* <Row>
                   <Col>Tax</Col>
-                  <Col>Rs. {order.taxPrice}</Col>
+                  <Col>Rs.{order.taxPrice}</Col>
                 </Row> */}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>Rs. {order.totalPrice}</Col>
+                  <Col>Rs.{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               {/* {!order.isPaid && (
