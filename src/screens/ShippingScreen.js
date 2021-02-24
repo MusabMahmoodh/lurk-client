@@ -36,7 +36,9 @@ function ShippingScreen({ history }) {
       <h2>Delivery</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>
+            Name <small className="text-danger">*</small>
+          </Form.Label>
           <Form.Control
             required
             type="text"
@@ -45,8 +47,11 @@ function ShippingScreen({ history }) {
             onChange={(e) => setName(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId="contactNo">
-          <Form.Label>Contact Number</Form.Label>{" "}
-          <small>(Format:*947xxxxxxxx)</small>
+          <Form.Label>
+            Contact Number <small className="text-danger">*</small>
+          </Form.Label>
+          {"   "}
+          <small className="text-danger">(Format:*947xxxxxxxx)</small>
           <Form.Control
             required
             type="text"
@@ -58,14 +63,15 @@ function ShippingScreen({ history }) {
         <Form.Group controlId="address">
           <Form.Label>Email-ID</Form.Label>
           <Form.Control
-            required
             type="email"
             placeholder="Enter Email"
             value={email ? email : ""}
             onChange={(e) => setEmail(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId="address">
-          <Form.Label>Delivery Address</Form.Label>
+          <Form.Label>
+            Delivery Address<small className="text-danger">*</small>
+          </Form.Label>
           <Form.Control
             required
             type="text"
@@ -76,17 +82,16 @@ function ShippingScreen({ history }) {
 
         <Form.Group controlId="city">
           <Form.Label>Nearest Land Mark</Form.Label>{" "}
-          <small>(Example:HNB,BOC,cargills..)</small>
+          <small className="text-danger">(Example:HNB,BOC,cargills..)</small>
           <Form.Control
-            required
             type="text"
             placeholder="Enter nearest locations"
             value={nearestLandMark ? nearestLandMark : ""}
             onChange={(e) => setNearestLandMark(e.target.value)}></Form.Control>
         </Form.Group>
 
-        <small>
-          Your personal data will be used to process your order, support your
+        <small className="text-danger">
+          *Your personal data will be used to process your order, support your
           experience throughout this website, and for other purposes described
           in our
           <a

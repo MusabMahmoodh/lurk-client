@@ -36,6 +36,10 @@ function CartScreen({ match, location, history }) {
     history.push("/shipping");
   };
 
+  // To enable button
+  useEffect(() => {
+    console.log("Changed amount");
+  }, [cartItems]);
   return (
     <Row className="py-2 ">
       <Link to="/" className="btn btn-outline-dark my-3">
@@ -72,18 +76,28 @@ function CartScreen({ match, location, history }) {
                         <Link
                           to={`/product/${item.product}`}
                           style={{ color: "white" }}>
-                          <small>{item.name}</small>
+                          <h6>{item.name}</h6>
                         </Link>
                       </Col>
                       <Col xs={12} md={3}>
-                        <Row style={{ color: "#f39c12" }}>
+                        <Row style={{ color: "white" }}>
                           <Col xs={6}>
                             <small>
-                              Rs.{item.price}x{item.qty}{" "}
+                              Rs.{item.price}
+                              {"    "}
+                              <span style={{ color: "#95a5a6" }}>x</span>{" "}
+                              {item.qty}{" "}
                             </small>
                           </Col>
-                          <Col xs={6}>
-                            <small>Rs {item.price * item.qty}</small>
+                          <Col
+                            xs={6}
+                            style={{
+                              position: "relative",
+                            }}>
+                            <small
+                              style={{ position: "absolute", right: "2px" }}>
+                              Rs {item.price * item.qty}
+                            </small>
                           </Col>
                         </Row>
                       </Col>
@@ -108,11 +122,17 @@ function CartScreen({ match, location, history }) {
                         </InputGroup>
                       </Col>
 
-                      <Col xs={4} md={2}>
+                      <Col
+                        xs={4}
+                        md={2}
+                        style={{
+                          position: "relative",
+                        }}>
                         <Button
                           type="button"
                           variant="light"
-                          onClick={() => removeFromCartHandler(item.product)}>
+                          onClick={() => removeFromCartHandler(item.product)}
+                          style={{ position: "absolute", right: "2px" }}>
                           <i className="fas fa-trash"></i>
                         </Button>
                       </Col>
@@ -144,7 +164,13 @@ function CartScreen({ match, location, history }) {
             <Button
               type="button"
               className="btn-block"
-              disabled={cartItems.length === 0}
+              disabled={
+                cartItems.length === 0 ||
+                cartItems.reduce(
+                  (acc, item) => acc + item.qty * item.price,
+                  0
+                ) < 500.0
+              }
               onClick={checkoutHandler}>
               Proceed To Checkout
             </Button>
