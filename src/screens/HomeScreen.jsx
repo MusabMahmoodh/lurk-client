@@ -26,8 +26,6 @@ function HomeScreen({ history }) {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
 
-=
-
   return (
     <div className="py-0">
       {!keyword && <ProductCarousel />}
