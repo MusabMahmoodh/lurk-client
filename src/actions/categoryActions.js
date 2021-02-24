@@ -40,7 +40,7 @@ export const listCategories = () => async (dispatch) => {
 };
 
 export const categoryDetails = (data) => async (dispatch) => {
-  console.log("Here", data);
+  // console.log("Here", data);
   try {
     dispatch({ type: CATEGORY_DETAILS_REQUEST });
 

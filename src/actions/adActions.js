@@ -22,7 +22,7 @@ export const listAds = () => async (dispatch) => {
     dispatch({ type: AD_LIST_REQUEST });
 
     const { data } = await axios.get(`${SERVER_URL}/api/promotions`);
-    console.log(data);
+    // console.log(data);
     dispatch({
       type: AD_LIST_SUCCESS,
       payload: data,

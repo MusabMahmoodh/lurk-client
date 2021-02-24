@@ -137,7 +137,7 @@ const VariationsListScreen = ({ history }) => {
                   </tr>
                 ))}
             </tbody>
-            {console.log(variations)}
+            {/* {console.log(variations)} */}
           </Table>
         </>
       )}

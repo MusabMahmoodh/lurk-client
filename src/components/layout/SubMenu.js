@@ -9,9 +9,15 @@ const SubMenu = (category) => {
     setCurrenVariation("");
   }, [category]);
   const handleClick = () => {
-    history.push(
-      `/?variation=${currentVaraition._id}&subVariation=&${currentSubVaraition._id}`
-    );
+    if (currentSubVaraition !== "" && currentSubVaraition !== undefined) {
+      history.push(
+        `/?variation=${currentVaraition._id}&subVariation=${currentSubVaraition._id}&category=${category.category._id}`
+      );
+    } else {
+      history.push(
+        `/?variation=${currentVaraition._id}&category=${category.category._id}`
+      );
+    }
   };
   return (
     <div className="py-2">

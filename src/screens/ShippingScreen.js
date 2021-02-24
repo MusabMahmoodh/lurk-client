@@ -94,7 +94,7 @@ function ShippingScreen({ history }) {
         <small className="text-danger">
           *Your personal data will be used to process your order, support your
           experience throughout this website, and for other purposes described
-          in our
+          in our{"   "}
           <a
             href="https://drive.google.com/file/d/1pJ23yCAVMbDQnV_JXwB49L97-pXuBIT2/view"
             target="_blank"

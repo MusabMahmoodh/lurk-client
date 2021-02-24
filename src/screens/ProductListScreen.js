@@ -110,7 +110,8 @@ const ProductListScreen = ({ history, match }) => {
                     <td>{product._id}</td>
                     <td>{product.name}</td>
                     <td>Rs.{product.newPrice}</td>
-                    <td>{product.category}</td>
+
+                    <td>{product.category && product.category.name}</td>
                     <td>{product.brand}</td>
                     <td>
                       <LinkContainer to={`/admin/product/${product._id}/edit`}>

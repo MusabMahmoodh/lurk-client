@@ -44,7 +44,7 @@ function RecommendedCard({ product }) {
         <Card.Text
           as="div"
           style={{ marginTop: 0, marginBottom: 0, marginTop: "-10px" }}>
-          RS.{product.newPrice}
+          Rs.{product.newPrice}
           <strike
             style={{
               color: "red",
