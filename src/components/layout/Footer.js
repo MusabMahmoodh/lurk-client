@@ -3,7 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 const Footer = () => {
   return (
     <footer className="footer-section">
-      <div className="copyright-area">
+      <div
+        className="copyright-area"
+        style={{ padding: "30px  0 80px  0 ", marginTop: "30px" }}>
         <div className="container" style={{ backgroundColor: "#202020" }}>
           <Row>
             <Col className=" text-center text-lg-left" xs={12} md={4}>
