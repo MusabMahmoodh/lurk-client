@@ -59,14 +59,14 @@ function CartScreen({ match, location, history }) {
                   </Col>
                   <Col xs={8} md={10}>
                     <Row>
-                      <Col xs={4} md={2}>
+                      <Col xs={12} md={2}>
                         <Link
                           to={`/product/${item.product}`}
                           style={{ color: "white" }}>
                           {item.name}
                         </Link>
                       </Col>
-                      <Col xs={8} md={3}>
+                      <Col xs={12} md={3}>
                         Rs. {item.price}x{item.qty} =Rs {item.price * item.qty}
                       </Col>
                       <Col xs={12} md={1}>
