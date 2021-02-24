@@ -13,12 +13,12 @@ const PagePreLoader = () => {
         right: "0",
       }}
       className="text-anime-container">
-      <h5 className="text-anime">
+      <h1 className="text-anime">
         WELCOME TO{" "}
         <b>
           <u>LURK</u>
         </b>
-      </h5>
+      </h1>
     </div>
   );
 };

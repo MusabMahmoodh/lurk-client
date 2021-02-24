@@ -39,7 +39,7 @@ function CartScreen({ match, location, history }) {
   return (
     <Row className="py-2 ">
       <Col xs={12}>
-        <h3 className="pb-2 ">Shopping Cart</h3>
+        <h2 className="pb-2 ">Shopping Cart</h2>
       </Col>
 
       <Col md={8}>
@@ -99,10 +99,10 @@ function CartScreen({ match, location, history }) {
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item className="bg-light text-dark">
-              <h2>
+              <h3>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
-              </h2>
+              </h3>
               Rs.
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)

@@ -69,7 +69,7 @@ const CategoryListScreen = ({ history }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h5>Catagories</h5>
+          <h2>Catagories</h2>
           <small>Eg: CR,Exercise,PaperStat...</small>
         </Col>
         <Col className="text-right">

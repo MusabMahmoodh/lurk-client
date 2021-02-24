@@ -25,7 +25,7 @@ function RecommendedCard({ product }) {
 
       <Card.Body style={{ marginTop: "2px", padding: 0 }}>
         <Card.Text as="div">
-          <Badge variant="primary">{product.brand}</Badge>{" "}
+          <Badge variant="warning">{product.brand}</Badge>{" "}
         </Card.Text>
         <LinkContainer to={`/product/${product._id}`}>
           <Card.Title as="div">
@@ -49,7 +49,14 @@ function RecommendedCard({ product }) {
             style={{
               color: "red",
             }}>
-            <br></br>
+            <div
+              style={{
+                margin: "0",
+                width: "100%",
+                height: ".1px",
+                background: "#95a5a6",
+                padding: "0",
+              }}></div>
             <small>Rs. {product.price}</small>{" "}
           </strike>
         </Card.Text>

@@ -68,7 +68,7 @@ const VariationsListScreen = ({ history }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h5>Variations</h5>
+          <h2>Variations</h2>
           <small>Eg: Single rule,Square rule</small>
         </Col>
         <Col className="text-right">

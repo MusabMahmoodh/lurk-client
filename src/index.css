@@ -3,13 +3,14 @@ main{
   min-height: 80vh;
  
 }
-body {
+
+ * {
+    
+font-family: 'Roboto', sans-serif;
+	
+}
+h1,h2,h5 {
 	font-family: 'Reggae One', cursive;
-	
-  }
-  h1,h2,h3,h4,h5,h6,* {
-    font-family: 'Reggae One', cursive;
-	
 }
 .container {
 	background-color: #e6f2f3;

@@ -16,12 +16,14 @@ function Product({ product }) {
         <Card.Img className=" p-1 rounded" src={product.image} />
       </Link>
 
-      <Card.Body style={{ padding: "8px" }}>
+      <Card.Body style={{ padding: "8px", position: "relative" }}>
         <Card.Text as="div">
-          <Badge variant="primary">{product.brand}</Badge>{" "}
-          <Badge variant="secondary">
-            {product.isAvailable ? "Available" : "Out of stock"}
-          </Badge>{" "}
+          <Badge variant="warning">{product.brand}</Badge>{" "}
+          {product.isAvailable ? (
+            <Badge variant="success">Available </Badge>
+          ) : (
+            <Badge variant="danger">Out of stock</Badge>
+          )}
         </Card.Text>
         <Card.Title
           as="div"
@@ -34,14 +36,30 @@ function Product({ product }) {
             style={{
               color: "red",
 
-              marginLeft: "1px",
+              marginLeft: "10px",
             }}>
-            <small>Rs. {product.price}</small>{" "}
+            <small>Rs. {product.price}</small>
           </strike>
         </Card.Text>
-        <Card.Text as="div">
-          <Link to={`/product/${product._id}`}>
-            <i class="fas fa-shopping-cart" style={{ float: "right" }}></i>
+
+        <Card.Text
+          as="div"
+          style={{
+            position: "absolute",
+            bottom: "2px",
+            right: "2px",
+            color: "#6f42c1",
+          }}>
+          <Link
+            to={`/product/${product._id}`}
+            style={{
+              color: "#6f42c1",
+            }}>
+            <i
+              class="fas fa-shopping-cart"
+              style={{
+                float: "right",
+              }}></i>
           </Link>
         </Card.Text>
       </Card.Body>

@@ -62,7 +62,7 @@ const SubVariationsListScreen = ({ history }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h5>Sub Variations</h5>
+          <h2>Sub Variations</h2>
           <small>Eg: 120page,blue....</small>
         </Col>
         <Col className="text-right">

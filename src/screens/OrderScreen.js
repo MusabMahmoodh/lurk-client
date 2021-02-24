@@ -94,9 +94,9 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <div className="my-3">
-      <h5>
+      <h2>
         Order :<small>{order._id}</small>
-      </h5>
+      </h2>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">

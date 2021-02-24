@@ -24,9 +24,8 @@ const Footer = () => {
                       rel="noreferrer"
                       href="https://lurk.lk/store/terms">
                       Terms And Condition
-                    </a>
-                  </li>
-                  <li>
+                    </a>{" "}
+                    ||{" "}
                     <a
                       target="_blank"
                       rel="noreferrer"

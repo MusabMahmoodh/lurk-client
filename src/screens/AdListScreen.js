@@ -59,7 +59,7 @@ const AdListScreen = ({ history }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h5>Advertisements</h5>
+          <h2>Advertisements</h2>
         </Col>
         <Col className="text-right">
           <Button className="my-3" onClick={createAdHandler}>
