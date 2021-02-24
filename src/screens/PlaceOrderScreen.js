@@ -6,7 +6,7 @@ import Message from "../components/Message";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { createOrder } from "../actions/orderActions";
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
-
+import ToHome from "../components/layout/ToHome";
 function PlaceOrderScreen({ history }) {
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, error, success } = orderCreate;
@@ -175,6 +175,7 @@ function PlaceOrderScreen({ history }) {
           </ListGroup>
         </Col>
       </Row>
+      <ToHome />
     </div>
   );
 }

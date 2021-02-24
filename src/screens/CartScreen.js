@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
-
+import ToHome from "../components/layout/ToHome";
 function CartScreen({ match, location, history }) {
   const productId = match.params.id;
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
@@ -181,6 +181,7 @@ function CartScreen({ match, location, history }) {
           </ListGroup.Item>
         </Card>
       </Col>
+      <ToHome />
     </Row>
   );
 }

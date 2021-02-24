@@ -34,7 +34,7 @@ function App() {
       <Router>
         <Header position="sticky" />
 
-        <main className="container m-auto pb-3">
+        <main className="container m-auto pb-5">
           <CircleMenu />
           <Route path="/login" component={LoginScreen} />
           <Route path="/" component={HomeScreen} exact />
@@ -100,7 +100,6 @@ function App() {
           />
           <Route path="/order/:id" component={OrderScreen} exact />
         </main>
-        <Footer />
       </Router>
     </div>
   );

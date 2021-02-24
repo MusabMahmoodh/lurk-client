@@ -12,7 +12,7 @@ import ProductCarousel from "../components/ProductCarousel";
 import RecommendedCarousal from "../components/RecommendedCarousal";
 import SubMenu from "../components/layout/SubMenu";
 import { listProducts } from "../actions/productActions";
-
+import Footer from "../components/layout/Footer";
 function HomeScreen({ history }) {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -33,7 +33,7 @@ function HomeScreen({ history }) {
       {!keyword && (
         <>
           <h5 className="py-4 text-center">LURK recommendations</h5>
-          <RecommendedCarousal />
+          <RecommendedCarousal bg="1" />
         </>
       )}
 
@@ -100,6 +100,7 @@ function HomeScreen({ history }) {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
