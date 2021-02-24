@@ -50,43 +50,54 @@ function CartScreen({ match, location, history }) {
         ) : (
           <ListGroup variant="flush">
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product} className="bg-dark text-light">
+              <ListGroup.Item
+                key={item.product}
+                className="bg-primary text-light">
                 <Row>
                   <Col xs={4} md={2}>
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
-                  <Col xs={4} md={3}>
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
-                  </Col>
+                  <Col xs={8} md={10}>
+                    <Row>
+                      <Col xs={4} md={2}>
+                        <Link
+                          to={`/product/${item.product}`}
+                          style={{ color: "white" }}>
+                          {item.name}
+                        </Link>
+                      </Col>
+                      <Col xs={8} md={3}>
+                        Rs. {item.price}x{item.qty} =Rs {item.price * item.qty}
+                      </Col>
+                      <Col xs={12} md={1}>
+                        <div style={{ height: "20px" }}></div>
+                      </Col>
+                      <Col xs={8} md={4}>
+                        <InputGroup size="sm" className="mb-3">
+                          <FormControl
+                            aria-label="Quantity"
+                            aria-describedby="inputGroup-sizing-sm"
+                            type="number"
+                            min="0"
+                            value={item.qty}
+                            onChange={(e) =>
+                              dispatch(
+                                addToCart(item.product, Number(e.target.value))
+                              )
+                            }
+                          />
+                        </InputGroup>
+                      </Col>
 
-                  <Col xs={4} md={1}>
-                    Rs. {item.price}
-                  </Col>
-                  <Col xs={3} md={0}></Col>
-                  <Col xs={6} md={2}>
-                    <InputGroup size="sm" className="mb-3">
-                      <FormControl
-                        aria-label="Quantity"
-                        aria-describedby="inputGroup-sizing-sm"
-                        type="number"
-                        min="0"
-                        value={item.qty}
-                        onChange={(e) =>
-                          dispatch(
-                            addToCart(item.product, Number(e.target.value))
-                          )
-                        }
-                      />
-                    </InputGroup>
-                  </Col>
-
-                  <Col xs={3} md={1}>
-                    <Button
-                      type="button"
-                      variant="light"
-                      onClick={() => removeFromCartHandler(item.product)}>
-                      <i className="fas fa-trash"></i>
-                    </Button>
+                      <Col xs={4} md={2}>
+                        <Button
+                          type="button"
+                          variant="primary"
+                          onClick={() => removeFromCartHandler(item.product)}>
+                          <i className="fas fa-trash"></i>
+                        </Button>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
               </ListGroup.Item>
