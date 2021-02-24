@@ -56,7 +56,7 @@ function ShippingScreen({ history }) {
             onChange={(e) => setContact(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId="address">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Email-ID</Form.Label>
           <Form.Control
             required
             type="email"
@@ -75,8 +75,8 @@ function ShippingScreen({ history }) {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>NearestLandMark</Form.Label>{" "}
-          <small>(Example:HNP,BOC,cargills..)</small>
+          <Form.Label>Nearest Land Mark</Form.Label>{" "}
+          <small>(Example:HNB,BOC,cargills..)</small>
           <Form.Control
             required
             type="text"

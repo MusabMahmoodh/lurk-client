@@ -31,7 +31,7 @@ function Product({ product }) {
           <strong>{product.name}</strong>
         </Card.Title>
         <Card.Text as="div">
-          RS.{product.newPrice}
+          Rs.{product.newPrice}
           <strike
             style={{
               color: "red",

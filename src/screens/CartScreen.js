@@ -38,6 +38,9 @@ function CartScreen({ match, location, history }) {
 
   return (
     <Row className="py-2 ">
+      <Link to="/" className="btn btn-outline-dark my-3">
+        Go Back
+      </Link>
       <Col xs={12}>
         <h2 className="pb-2 ">Shopping Cart</h2>
       </Col>
@@ -55,7 +58,13 @@ function CartScreen({ match, location, history }) {
                 className="bg-primary text-light">
                 <Row>
                   <Col xs={4} md={2}>
-                    <Image src={item.image} alt={item.name} fluid rounded />
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fluid
+                      rounded
+                      style={{ border: "solid 1px white" }}
+                    />
                   </Col>
                   <Col xs={8} md={10}>
                     <Row>
@@ -67,7 +76,18 @@ function CartScreen({ match, location, history }) {
                         </Link>
                       </Col>
                       <Col xs={12} md={3}>
-                        Rs. {item.price}x{item.qty} =Rs {item.price * item.qty}
+                        <Row>
+                          <Col xs={8}>
+                            <small>
+                              Rs.{item.price}x{item.qty}{" "}
+                            </small>
+                          </Col>
+                          <Col xs={4}>
+                            <h5 style={{ diplay: "inline" }}>
+                              Rs {item.price * item.qty}
+                            </h5>
+                          </Col>
+                        </Row>
                       </Col>
                       <Col xs={12} md={1}>
                         <div style={{ height: "20px" }}></div>
@@ -80,6 +100,7 @@ function CartScreen({ match, location, history }) {
                             type="number"
                             min="0"
                             value={item.qty}
+                            style={{ color: " black" }}
                             onChange={(e) =>
                               dispatch(
                                 addToCart(item.product, Number(e.target.value))
@@ -92,7 +113,7 @@ function CartScreen({ match, location, history }) {
                       <Col xs={4} md={2}>
                         <Button
                           type="button"
-                          variant="primary"
+                          variant="light"
                           onClick={() => removeFromCartHandler(item.product)}>
                           <i className="fas fa-trash"></i>
                         </Button>
@@ -111,7 +132,7 @@ function CartScreen({ match, location, history }) {
           <ListGroup variant="flush">
             <ListGroup.Item className="bg-light text-dark">
               <h3>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                Total ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
               </h3>
               Rs.

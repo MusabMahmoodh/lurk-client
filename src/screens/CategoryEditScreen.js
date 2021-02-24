@@ -79,7 +79,7 @@ const CategoryEditScreen = ({ match, history }) => {
                 onChange={(e) => setName(e.target.value)}></Form.Control>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlSelect2">
-              <Form.Label>Select recipients</Form.Label>
+              <Form.Label>Select variation</Form.Label>
               <Form.Control
                 as="select"
                 multiple
