@@ -10,7 +10,7 @@ const CircleMenu = () => {
       id="circularMenu"
       className={show ? "circular-menu active" : "circular-menu"}>
       <div className="floating-btn" onClick={handler}>
-        <i class="far fa-question-circle"></i>
+        <i class="fas fa-comment-dots"></i>
       </div>
 
       <menu className="items-wrapper">
