@@ -101,7 +101,7 @@ function PlaceOrderScreen({ history }) {
                     <strong>Total:</strong>
                   </Col>
                   <Col>
-                    <strong>Rs.{cart.totalPrice}.00</strong>{" "}
+                    <strong>Rs.{cart.totalPrice}</strong>{" "}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -131,9 +131,9 @@ function PlaceOrderScreen({ history }) {
           <ListGroup variant="flush">
             <ListGroup.Item className="bg-light text-dark">
               <p>
-                <strong>Delivery address: </strong>
+                <strong>Delivery Address: </strong>
                 {cart.shippingAddress.address},<br></br>
-                <strong>Nearest Land Mark: </strong>
+                <strong>Nearest Landmark: </strong>
                 {cart.shippingAddress.nearestLandMark},
               </p>
             </ListGroup.Item>
@@ -166,7 +166,9 @@ function PlaceOrderScreen({ history }) {
                         </Col>
 
                         <Col>
-                          <Link to={`/product/${item.product}`}>
+                          <Link
+                            to={`/product/${item.product}`}
+                            style={{ color: "white" }}>
                             {item.name}
                           </Link>
                         </Col>

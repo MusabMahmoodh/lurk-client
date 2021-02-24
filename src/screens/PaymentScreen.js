@@ -11,7 +11,7 @@ function PaymentScreen({ history }) {
 
   const dispatch = useDispatch();
 
-  const [paymentMethod, setPaymentMethod] = useState("CashOnDelivery");
+  const [paymentMethod, setPaymentMethod] = useState("Cash On Delivery");
 
   if (!shippingAddress.address) {
     history.push("/shipping");

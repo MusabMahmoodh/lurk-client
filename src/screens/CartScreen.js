@@ -48,7 +48,7 @@ function CartScreen({ match, location, history }) {
       <Col xs={12}>
         <h2 className="pb-2 ">Shopping Cart</h2>
         <small className="text-danger">
-          <strong>Minimum order value Rs.500.00</strong>
+          <strong>Minimum Order Value Rs.500.00</strong>
         </small>
       </Col>
 
@@ -154,7 +154,7 @@ function CartScreen({ match, location, history }) {
             <ListGroup.Item className="bg-light text-dark">
               <h3>
                 Total ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
+                Items
               </h3>
               Rs.
               {cartItems
