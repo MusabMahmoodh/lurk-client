@@ -34,7 +34,7 @@ function ShippingScreen({ history }) {
     <FormContainer>
       <CheckoutSteps step1 step2 />
       <h2>Delivery</h2>
-      <small className="text-danger">* required</small>
+      <small className="text-danger">* Required</small>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
           <Form.Label>
@@ -82,7 +82,7 @@ function ShippingScreen({ history }) {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label>Nearest Land Mark</Form.Label>{" "}
+          <Form.Label>Nearest Landmark</Form.Label>{" "}
           <small className="text-danger">(Example:HNB,BOC,cargills..)</small>
           <Form.Control
             type="text"
@@ -99,7 +99,7 @@ function ShippingScreen({ history }) {
             href="https://drive.google.com/file/d/1pJ23yCAVMbDQnV_JXwB49L97-pXuBIT2/view"
             target="_blank"
             rel="noreferrer">
-            privacy policy
+            Privacy Policy
           </a>
           .
         </small>
@@ -113,11 +113,11 @@ function ShippingScreen({ history }) {
             href="https://drive.google.com/file/d/1V7r7KM_Ef-auhSpt-q1N6WRSG0KONEx8/view"
             target="_blank"
             rel="noreferrer">
-            terms and conditions.
+            Terms and Conditions.
           </a>
         </Form.Group>
 
-        <Button type="submit" variant="primary" disabled={!checked}>
+        <Button type="submit" variant="success" disabled={!checked}>
           Proceed
         </Button>
       </Form>

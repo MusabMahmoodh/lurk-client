@@ -25,26 +25,32 @@ function RecommendedCard({ product }) {
 
       <Card.Body style={{ marginTop: "2px", padding: 0 }}>
         <Card.Text as="div">
-          <Badge variant="warning">{product.brand}</Badge>{" "}
+          <Badge style={{ background: "#4169e1", color: "white" }}>
+            <small>{product.brand}</small>
+          </Badge>{" "}
         </Card.Text>
-        <LinkContainer to={`/product/${product._id}`}>
-          <Card.Title as="div">
-            <p
-              style={{
-                marginBottom: 0,
-                whiteSpace: "nowrap",
-                overflow: "hidden",
+        {/* <LinkContainer to={`/product/${product._id}`}> */}
 
-                textOverflow: "ellipsis",
-              }}>
-              {product.name}
-            </p>
-          </Card.Title>
-        </LinkContainer>
-        <Card.Text
+        <Card.Title
           as="div"
-          style={{ marginTop: 0, marginBottom: 0, marginTop: "-10px" }}>
-          Rs.{product.newPrice}.00
+          style={{
+            // overflow: "hidden",
+            // textOverflow: "ellipsis",
+            marginTop: "5px",
+            marginBottom: "0",
+            whiteSpace: "pre-wrap",
+            overflowWrap: "break-word",
+          }}>
+          <h6
+            style={{
+              fontSize: "0.6rem",
+            }}>
+            {product.name}
+          </h6>
+        </Card.Title>
+        {/* </LinkContainer> */}
+        <Card.Text as="div" style={{ marginTop: 0, marginBottom: 0 }}>
+          Rs.{product.newPrice}
           <strike
             style={{
               color: "red",
@@ -57,7 +63,7 @@ function RecommendedCard({ product }) {
                 background: "#95a5a6",
                 padding: "0",
               }}></div>
-            <small>Rs.{product.price}.00</small>{" "}
+            <small>Rs.{product.price}</small>{" "}
           </strike>
         </Card.Text>
       </Card.Body>

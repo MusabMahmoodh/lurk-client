@@ -32,18 +32,18 @@ function HomeScreen({ history }) {
 
       {!keyword && (
         <>
-          <h5 className="py-4 text-center">LURK recommendations</h5>
+          <h5 className="py-4 text-center">LURK Recommendations</h5>
           <RecommendedCarousal bg="1" />
         </>
       )}
 
       {loading ? (
-        <Loader />
+        <PagePreLoader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
         <div>
-          <h5 className="text-center py-3">Latest products</h5>
+          <h5 className="text-center py-3">Latest Products</h5>
           {Object.keys(category).length > 1 && <SubMenu category={category} />}
           <hr style={{ marginTop: 0 }}></hr>
 

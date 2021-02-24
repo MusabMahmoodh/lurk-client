@@ -12,6 +12,7 @@ font-family: 'Roboto', sans-serif;
 h1,h2,h5,h6 {
 	font-family: 'Reggae One', cursive;
 }
+
 .container {
 	background-color: #e6f2f3;
   }
@@ -184,10 +185,10 @@ h1,h2,h5,h6 {
 /* Text anim */
 
 .text-anime{
-	color: #fff;
+	color:#954f97;
 	height: 100%;
 	overflow: hidden;
-	background: #954f97;
+	background:#fff ; 
 }
 
 .text-anime {
@@ -236,9 +237,9 @@ h1,h2,h5,h6 {
 	font-size: 14px;
 	color: #878787;
   }
-  .copyright-text p a{
+  /* .copyright-text p a{
 	color: #6f42c1;
-  }
+  } */
   /* .footer-menu li {
 	display: inline-block;
 	margin-left: 20px;
@@ -250,3 +251,9 @@ h1,h2,h5,h6 {
 	font-size: 14px;
 	color: #878787;
   }
+
+  /* //purple theme */
+.purple-bg{
+	background: #6f42c1;
+	color:#fff;
+}

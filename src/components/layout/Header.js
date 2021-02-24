@@ -26,7 +26,7 @@ const Header = ({ position }) => {
         position: `${position}`,
         padding: 0,
         top: "0",
-        zIndex: "999",
+        zIndex: "9999",
       }}>
       <Row
         style={{

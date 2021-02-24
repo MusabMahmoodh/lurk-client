@@ -26,6 +26,7 @@ const RecommendedCarousal = (bg) => {
             marginBottom: "3px",
             backgroundImage: `url(${BgImg})`,
             borderRadius: "10px",
+            display: "flex",
             // marginTop: "-20px",
           }}>
           {productsTop &&

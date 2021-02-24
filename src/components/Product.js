@@ -18,17 +18,28 @@ function Product({ product }) {
 
       <Card.Body style={{ padding: "8px", position: "relative" }}>
         <Card.Text as="div">
-          <Badge variant="warning">{product.brand}</Badge>{" "}
+          <Badge style={{ background: "#4169e1", color: "white" }}>
+            <small>{product.brand}</small>
+          </Badge>{" "}
           {product.isAvailable ? (
-            <Badge variant="success">Available </Badge>
+            <Badge style={{ background: "#6f42c1", color: "white" }}>
+              <small>Available </small>
+            </Badge>
           ) : (
-            <Badge variant="danger">Out of stock</Badge>
+            <Badge variant="danger">
+              <small>Out of stock</small>{" "}
+            </Badge>
           )}
         </Card.Text>
         <Card.Title
           as="div"
-          style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-          <strong>{product.name}</strong>
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            marginTop: "5px",
+            marginBottom: "0",
+          }}>
+          <h6>{product.name}</h6>
         </Card.Title>
         <Card.Text as="div">
           Rs.{product.newPrice}

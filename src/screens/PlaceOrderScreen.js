@@ -78,7 +78,11 @@ function PlaceOrderScreen({ history }) {
 
               <ListGroup.Item className="bg-light text-dark">
                 {cart.cartItems.map((item, index) => (
-                  <Row style={{ marginBottom: "5px" }}>
+                  <Row
+                    style={{
+                      marginBottom: "5px",
+                      borderBottom: "solid 0.006rem grey",
+                    }}>
                     <Col xs={5}>
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
                     </Col>
@@ -92,7 +96,7 @@ function PlaceOrderScreen({ history }) {
                   </Row>
                 ))}
 
-                <Row style={{ borderTop: "solid grey 1px" }}>
+                <Row>
                   <Col>
                     <strong>Total:</strong>
                   </Col>
@@ -110,6 +114,11 @@ function PlaceOrderScreen({ history }) {
                 <Button
                   type="button"
                   className="btn-block"
+                  style={{
+                    background: "#6f42c1",
+                    color: "#fff",
+                  }}
+                  variant="light"
                   disabled={cart.cartItems === 0}
                   onClick={placeOrder}>
                   Place Order
