@@ -34,6 +34,7 @@ function ShippingScreen({ history }) {
     <FormContainer>
       <CheckoutSteps step1 step2 />
       <h2>Delivery</h2>
+      <small className="text-danger">* required</small>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
           <Form.Label>

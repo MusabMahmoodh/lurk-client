@@ -47,6 +47,7 @@ function CartScreen({ match, location, history }) {
       </Link>
       <Col xs={12}>
         <h2 className="pb-2 ">Shopping Cart</h2>
+        <small className="text-danger">Minimum order value Rs.500</small>
       </Col>
 
       <Col md={8}>
