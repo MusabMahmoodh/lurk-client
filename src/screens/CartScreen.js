@@ -72,20 +72,18 @@ function CartScreen({ match, location, history }) {
                         <Link
                           to={`/product/${item.product}`}
                           style={{ color: "white" }}>
-                          {item.name}
+                          <small>{item.name}</small>
                         </Link>
                       </Col>
                       <Col xs={12} md={3}>
-                        <Row>
-                          <Col xs={8}>
+                        <Row style={{ color: "#f39c12" }}>
+                          <Col xs={6}>
                             <small>
                               Rs.{item.price}x{item.qty}{" "}
                             </small>
                           </Col>
-                          <Col xs={4}>
-                            <h5 style={{ diplay: "inline" }}>
-                              Rs {item.price * item.qty}
-                            </h5>
+                          <Col xs={6}>
+                            <small>Rs {item.price * item.qty}</small>
                           </Col>
                         </Row>
                       </Col>
