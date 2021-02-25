@@ -25,7 +25,7 @@ import CategoryListScreen from "./screens/CategoryListScreen";
 import CategoryEditScreen from "./screens/CategoryEditScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/OrderListScreen";
-import LoginScreen from "./screens/owowonScreen";
+import LoginScreen from "./screens/LoginScreen";
 import OrderScreen from "./screens/OrderScreen";
 
 function App() {
