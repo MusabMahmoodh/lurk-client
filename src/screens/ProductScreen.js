@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../actions/productActions";
 
 // import Rating from "../components/Rating";
-import Loader from "../components/Loader";
+import PagePreLoader from "../components/PagePreLoader";
 import Message from "../components/Message";
 import RecommendedCarousal from "../components/RecommendedCarousal";
 const ProductScreen = ({ match, history }) => {
@@ -42,7 +42,7 @@ const ProductScreen = ({ match, history }) => {
           Go Back
         </Link>
         {loading ? (
-          <Loader />
+          <PagePreLoader />
         ) : error ? (
           <Message variant="danger">{error}</Message>
         ) : (

@@ -153,10 +153,9 @@ function CartScreen({ match, location, history }) {
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item className="bg-light text-dark">
-              <h3>
-                <span className="cursive">Total</span> (
-                {cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                <span className="cursive">Items</span>
+              <h3 className="cursive">
+                Total(
+                {cartItems.reduce((acc, item) => acc + item.qty, 0)}) Items
               </h3>
               Rs.
               {cartItems

@@ -84,7 +84,11 @@ function PlaceOrderScreen({ history }) {
                       borderBottom: "solid 0.006rem grey",
                     }}>
                     <Col xs={5}>
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      <Link
+                        style={{ color: "#878787" }}
+                        to={`/product/${item.product}`}>
+                        {item.name}
+                      </Link>
                     </Col>
 
                     <Col xs={7}>

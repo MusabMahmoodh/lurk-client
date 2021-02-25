@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import RecommendedCard from "./RecommendedCard";
-import Loader from "./Loader";
+import Loader from "./PagePreLoader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
 import BgImg from "../assets/bg-image.jpg";
