@@ -33,7 +33,7 @@ function HomeScreen({ history }) {
       {!keyword && (
         <>
           <h5 className="py-4 text-center">LURK Recommendations</h5>
-          <RecommendedCarousal bg="1" />
+          <RecommendedCarousal bg={true} />
         </>
       )}
 

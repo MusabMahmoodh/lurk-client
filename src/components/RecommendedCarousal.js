@@ -5,8 +5,10 @@ import Loader from "./Loader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
 import BgImg from "../assets/bg-image.jpg";
-const RecommendedCarousal = (bg) => {
+//if bg is true render background
+const RecommendedCarousal = ({ bg }) => {
   const dispatch = useDispatch();
+
   const topProductList = useSelector((state) => state.productTopRated);
   const { error, loading, productsTop } = topProductList;
   useEffect(() => {
@@ -39,6 +41,7 @@ const RecommendedCarousal = (bg) => {
             marginBottom: "3px",
 
             borderRadius: "10px",
+            display: "flex",
             // marginTop: "-20px",
           }}>
           {productsTop &&

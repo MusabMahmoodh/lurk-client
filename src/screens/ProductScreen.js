@@ -165,7 +165,7 @@ const ProductScreen = ({ match, history }) => {
       </div>
       <p></p>
       <h5>You may also like</h5>
-      <RecommendedCarousal bg={false} />
+      <RecommendedCarousal />
     </>
   );
 };
