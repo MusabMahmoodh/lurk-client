@@ -117,7 +117,14 @@ function ShippingScreen({ history }) {
           </a>
         </Form.Group>
 
-        <Button type="submit" variant="success" disabled={!checked}>
+        <Button
+          type="submit"
+          variant="light"
+          style={{
+            background: "#6f42c1",
+            color: "#fff",
+          }}
+          disabled={!checked}>
           Proceed
         </Button>
       </Form>

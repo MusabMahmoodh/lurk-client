@@ -41,7 +41,12 @@ function PaymentScreen({ history }) {
           </Col>
         </Form.Group>
 
-        <Button type="submit" variant="success">
+        <Button
+          type="submit"
+          style={{
+            background: "#6f42c1",
+            color: "#fff",
+          }}>
           Continue
         </Button>
       </Form>

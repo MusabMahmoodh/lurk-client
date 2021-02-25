@@ -23,6 +23,7 @@ function CartScreen({ match, location, history }) {
   const { cartItems } = cart;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
@@ -153,8 +154,9 @@ function CartScreen({ match, location, history }) {
           <ListGroup variant="flush">
             <ListGroup.Item className="bg-light text-dark">
               <h3>
-                Total ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                Items
+                <span className="cursive">Total</span> (
+                {cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                <span className="cursive">Items</span>
               </h3>
               Rs.
               {cartItems
@@ -167,6 +169,11 @@ function CartScreen({ match, location, history }) {
             <Button
               type="button"
               className="btn-block"
+              style={{
+                background: "#6f42c1",
+                color: "#fff",
+              }}
+              variant="light"
               disabled={
                 cartItems.length === 0 ||
                 cartItems.reduce(

@@ -26,6 +26,7 @@ const ProductScreen = ({ match, history }) => {
 
   const [qty, setQty] = useState(1);
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
   const { loading, error, product } = productDetails;
@@ -53,14 +54,14 @@ const ProductScreen = ({ match, history }) => {
             <Col xs={12} md={3}>
               <ListGroup variant="flush">
                 <ListGroup.Item className="bg-light text-dark">
-                  <h3>{product.name}</h3>
+                  <h5>{product.name}</h5>
 
-                  <small>{product.description}</small>
+                  <p className="cursive text-muted">{product.description}</p>
                 </ListGroup.Item>
                 {product.isAvailable && (
                   <ListGroup.Item className="bg-light text-dark">
                     <Row>
-                      <Col>Quantity</Col>
+                      <Col className="cursive">Quantity</Col>
                       <Col xs="auto" className="my-1">
                         <InputGroup size="sm" className="mb-3">
                           <FormControl
@@ -78,10 +79,10 @@ const ProductScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 )}
 
-                <ListGroup.Item className="bg-light text-dark">
+                <ListGroup.Item className="bg-light text-dark cursive">
                   Selling Price: <strong>Rs.{product.newPrice}.00</strong>
                 </ListGroup.Item>
-                <ListGroup.Item className="bg-light text-dark">
+                <ListGroup.Item className="bg-light text-dark cursive">
                   Market Price:{" "}
                   <strike
                     style={{
@@ -98,10 +99,10 @@ const ProductScreen = ({ match, history }) => {
             <Col xs={12} md={3}>
               <Card>
                 <ListGroup variant="flush">
-                  <ListGroup.Item className="bg-light text-dark">
+                  <ListGroup.Item className="bg-light text-dark ">
                     <Row>
-                      <Col>Status:</Col>
-                      <Col>
+                      <Col className="cursive">Status:</Col>
+                      <Col className="cursive">
                         {product.isAvailable ? "In Stock" : "Out of Stock"}
                       </Col>
                     </Row>
@@ -146,7 +147,11 @@ const ProductScreen = ({ match, history }) => {
                     onClick={addToCartHandler}
                     className="btn-block "
                     disabled={product.isAvailable == 0}
-                    variant={product.isAvailable ? "success" : "danger"}
+                    style={{
+                      background: "#6f42c1",
+                      color: "#fff",
+                    }}
+                    variant="light"
                     type="button">
                     <i class="fas fa-shopping-cart"></i>{" "}
                     {product.isAvailable ? "Add to Cart" : "Out of stock"}

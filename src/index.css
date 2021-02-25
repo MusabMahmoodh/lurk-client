@@ -9,10 +9,12 @@ main{
 font-family: 'Roboto', sans-serif;
 	
 }
-h1,h2,h5,h6 {
+h1,h2,h5,h6,.cursive {
 	font-family: 'Reggae One', cursive;
 }
-
+.dark {
+	color:"black"
+}
 .container {
 	background-color: #e6f2f3;
   }
