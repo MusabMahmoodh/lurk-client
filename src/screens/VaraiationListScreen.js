@@ -38,7 +38,7 @@ const VariationsListScreen = ({ history }) => {
     dispatch({ type: VARIATION_CREATE_RESET });
 
     if (!userInfo || !userInfo.isAdmin) {
-      history.push("/login");
+      history.push("/owowon");
     }
 
     if (successCreate) {

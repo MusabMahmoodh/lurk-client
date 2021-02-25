@@ -36,7 +36,7 @@ const AdListScreen = ({ history }) => {
     dispatch({ type: AD_CREATE_RESET });
 
     if (!userInfo || !userInfo.isAdmin) {
-      history.push("/login");
+      history.push("/owowon");
     }
 
     if (successCreate) {

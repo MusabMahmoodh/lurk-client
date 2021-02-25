@@ -25,7 +25,7 @@ import CategoryListScreen from "./screens/CategoryListScreen";
 import CategoryEditScreen from "./screens/CategoryEditScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/OrderListScreen";
-import LoginScreen from "./screens/LoginScreen";
+import LoginScreen from "./screens/owowonScreen";
 import OrderScreen from "./screens/OrderScreen";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
 
         <main className="container m-auto pb-5">
           <CircleMenu />
-          <Route path="/login" component={LoginScreen} />
+          <Route path="/owowon" component={LoginScreen} />
           <Route path="/" component={HomeScreen} exact />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />

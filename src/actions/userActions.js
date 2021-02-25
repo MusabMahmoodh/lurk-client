@@ -41,7 +41,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${SERVER_URL}/api/users/login`,
+      `${SERVER_URL}/api/users/owowon`,
       { email, password },
       config
     );
@@ -72,7 +72,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_LIST_MY_RESET });
   dispatch({ type: USER_LIST_RESET });
-  document.location.href = "/login";
+  document.location.href = "/owowon";
 };
 
 export const register = (name, email, password) => async (dispatch) => {

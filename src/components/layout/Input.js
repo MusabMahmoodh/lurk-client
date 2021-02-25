@@ -37,7 +37,7 @@ const Input = () => {
       history.push(`/?category=${category}&page=1`);
     } else if (
       categoryName === "All" &&
-      history.location.pathname !== "/login"
+      history.location.pathname !== "/owowon"
     ) {
       history.push("/");
     }
