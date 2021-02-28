@@ -41,7 +41,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${SERVER_URL}/api/users/owowon`,
+      `${SERVER_URL}/api/users/login`,
       { email, password },
       config
     );
