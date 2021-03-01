@@ -27,7 +27,9 @@ const SubMenu = (category) => {
             <Button
               variant="outline-info"
               size="sm"
-              onClick={() => setCurrenVariation(vari)}
+              onClick={() => {
+                setCurrenVariation(vari);
+              }}
               active={vari._id === currentVaraition._id}>
               {vari.name}
             </Button>{" "}

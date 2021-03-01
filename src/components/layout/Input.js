@@ -78,6 +78,7 @@ const Input = () => {
           type="text"
           name="q"
           onChange={(e) => setKeyword(e.target.value)}
+          onKeyPress={(e) => e.key === "Enter" && submitHandler(e)}
         />
         <InputGroup.Append>
           <InputGroup.Text id="basic-addon2" onClick={submitHandler}>
