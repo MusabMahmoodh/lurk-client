@@ -72,14 +72,26 @@ const ProductEditScreen = ({ match, history }) => {
   }, [dispatch, history, productId, product, successUpdate]);
 
   useEffect(() => {
-    if (category) {
+    if (
+      category !== "" &&
+      category !== undefined &&
+      categories.category !== undefined
+    ) {
+      // console.log(currentCategory);
+      // // console.log(category);
       setCurrentCategory(categories.category.filter((c) => c._id === category));
       setCurrentVariation("");
       setVariation("");
     }
   }, [category]);
   useEffect(() => {
-    if (variation) {
+    if (
+      variation !== "" &&
+      variation !== undefined &&
+      currentCategory[0] !== undefined
+    ) {
+      // console.log(currentCategory);
+
       setCurrentVariation(
         currentCategory[0].variations.filter((c) => c._id === variation)
       );

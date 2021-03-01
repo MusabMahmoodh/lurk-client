@@ -11,6 +11,7 @@ function RecommendedCard({ product }) {
       style={{
         margin: "3px",
         width: "100px",
+        minWidth: "100px",
         marginBottom: 0,
         background: "#ecf0f1",
         color: "#7b8a8b",

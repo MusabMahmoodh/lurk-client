@@ -69,7 +69,7 @@ function HomeScreen({ history }) {
                 }}>
                 <Message variant="light">
                   <small>
-                    <strong>{products.products.length}</strong> Items found
+                    <strong>{products.length}</strong> Items found
                   </small>
                 </Message>
               </div>
