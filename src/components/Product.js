@@ -18,9 +18,16 @@ function Product({ product }) {
 
       <Card.Body style={{ padding: "8px", position: "relative" }}>
         <Card.Text as="div">
-          <Badge style={{ background: "#002366", color: "white" }}>
-            <small>{product.brand}</small>
-          </Badge>{" "}
+          {product.brand.length > 0 ? (
+            <>
+              <Badge style={{ background: "#002366", color: "white" }}>
+                <small>{product.brand}</small>
+              </Badge>{" "}
+            </>
+          ) : (
+            ""
+          )}
+
           {product.isAvailable ? (
             <Badge style={{ background: "#6f42c1", color: "white" }}>
               <small>Available </small>
