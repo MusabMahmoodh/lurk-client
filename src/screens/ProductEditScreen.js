@@ -78,9 +78,10 @@ const ProductEditScreen = ({ match, history }) => {
       categories.category !== undefined
     ) {
       // console.log(currentCategory);
-      // // console.log(category);
+      // console.log(category);
       setCurrentCategory(categories.category.filter((c) => c._id === category));
       setCurrentVariation("");
+      setSubVariation("");
       setVariation("");
     }
   }, [category]);
@@ -91,7 +92,7 @@ const ProductEditScreen = ({ match, history }) => {
       currentCategory[0] !== undefined
     ) {
       // console.log(currentCategory);
-
+      setSubVariation("");
       setCurrentVariation(
         currentCategory[0].variations.filter((c) => c._id === variation)
       );
@@ -115,6 +116,7 @@ const ProductEditScreen = ({ match, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(category);
     dispatch(
       updateProduct({
         _id: productId,
@@ -227,7 +229,7 @@ const ProductEditScreen = ({ match, history }) => {
                   as="select"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}>
-                  <option>---</option>
+                  <option disabled>---</option>
                   {categories.category &&
                     categories.category.map((sv) => (
                       <option value={sv._id}>{sv.name}</option>
