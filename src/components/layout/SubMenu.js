@@ -8,17 +8,7 @@ const SubMenu = (category) => {
   useEffect(() => {
     setCurrenVariation("");
   }, [category]);
-  const handleClick = () => {
-    if (currentSubVaraition !== "" && currentSubVaraition !== undefined) {
-      history.push(
-        `/?variation=${currentVaraition._id}&subVariation=${currentSubVaraition._id}&category=${category.category._id}`
-      );
-    } else {
-      history.push(
-        `/?variation=${currentVaraition._id}&category=${category.category._id}`
-      );
-    }
-  };
+
   useEffect(() => {
     history.location.search.split("variation")[1] &&
       category.category.variations.length > 1 &&
@@ -31,6 +21,23 @@ const SubMenu = (category) => {
             .split("=")[1]
         ) {
           setCurrenVariation(vari);
+          history.location.search.split("subVariation")[1] &&
+            vari.subVariations.forEach((subVari) => {
+              if (
+                subVari._id ===
+                history.location.search
+                  .split("subVariation")[1]
+                  .split("&")[0]
+                  .split("=")[1]
+              ) {
+                setCurrenSubVariation(subVari);
+              }
+            });
+
+          //   vari.subVariations.length > 1 &&
+          // vari.subVariations.map((vari) => (
+
+          // ))
         }
       });
   }, [history]);
@@ -44,6 +51,9 @@ const SubMenu = (category) => {
               size="sm"
               onClick={() => {
                 setCurrenVariation(vari);
+                history.push(
+                  `/?variation=${vari._id}&category=${category.category._id}`
+                );
               }}
               active={vari._id === currentVaraition._id}>
               {vari.name}
@@ -56,29 +66,21 @@ const SubMenu = (category) => {
         currentVaraition.subVariations.map((vari) => (
           <>
             <Badge
-              variant={vari._id === currentSubVaraition._id ? "dark" : "light"}
+              variant={
+                vari._id === currentSubVaraition._id ? "success" : "dark"
+              }
               size="sm"
               pill
               className="btn"
-              onClick={() => setCurrenSubVariation(vari)}>
+              onClick={() => {
+                history.push(
+                  `/?variation=${currentVaraition._id}&subVariation=${vari._id}&category=${category.category._id}`
+                );
+              }}>
               {vari.name}
             </Badge>{" "}
           </>
         ))}
-      {category.category.variations.length > 1 ? (
-        <Button
-          variant="light"
-          size="sm"
-          onClick={handleClick}
-          style={{ background: "transparent", border: "none" }}>
-          <i class="fas fa-filter"></i>
-          <small>
-            <em>Filter</em>
-          </small>
-        </Button>
-      ) : (
-        ""
-      )}
     </div>
   );
 };
