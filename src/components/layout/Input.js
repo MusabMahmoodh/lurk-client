@@ -31,7 +31,7 @@ const Input = () => {
   }, [dispatch]);
   useEffect(() => {
     dispatch(categoryDetails(currentCategory));
-
+    setKeyword("");
     if (category) {
       history.push(`/?category=${category}&page=1`);
     } else if (
