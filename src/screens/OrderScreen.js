@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { useReactToPrint } from "react-to-print";
+
 // import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
@@ -34,6 +36,11 @@ const OrderScreen = ({ match, history }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   if (!loading) {
     //   Calculate prices
@@ -93,122 +100,124 @@ const OrderScreen = ({ match, history }) => {
   ) : error ? (
     <Message variant="danger">{error}</Message>
   ) : (
-    <div className="my-3">
-      <h2>
-        Order :<small>{order._id}</small>
-      </h2>
-      <Row>
-        <Col md={8}>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Name: </strong> {order.shippingAddress.name}
-              </p>
-              <p>
-                <strong>Email: </strong>{" "}
-                <a href={`mailto:Rs.{order.shippingAddress.email}`}>
-                  {order.shippingAddress.email}
-                </a>
-              </p>
-              <p>
-                <strong>Address: </strong>
-                {order.shippingAddress.address},
-              </p>
-              <p>
-                <strong>Nearest Landmark: </strong>
-                {order.shippingAddress.nearestLandMark},
-              </p>
-              {order.isDelivered ? (
-                <Message variant="success">
-                  Delivered on {order.deliveredAt}
-                </Message>
-              ) : (
-                <Message variant="danger">Not Delivered</Message>
-              )}
-            </ListGroup.Item>
+    <>
+      <button onClick={handlePrint}>Print this out!</button>
+      <div className="my-3" ref={componentRef}>
+        <h2>
+          Order :<small>{order._id}</small>
+        </h2>
+        <Row>
+          <Col md={8}>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <h2>Shipping</h2>
+                <p>
+                  <strong>Name: </strong> {order.shippingAddress.name}
+                </p>
+                <p>
+                  <strong>Email: </strong>{" "}
+                  <a href={`mailto:Rs.{order.shippingAddress.email}`}>
+                    {order.shippingAddress.email}
+                  </a>
+                </p>
+                <p>
+                  <strong>Address: </strong>
+                  {order.shippingAddress.address},
+                </p>
+                <p>
+                  <strong>Nearest Landmark: </strong>
+                  {order.shippingAddress.nearestLandMark},
+                </p>
+                {order.isDelivered ? (
+                  <Message variant="success">
+                    Delivered on {order.deliveredAt}
+                  </Message>
+                ) : (
+                  <Message variant="danger">Not Delivered</Message>
+                )}
+              </ListGroup.Item>
 
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <p>
-                <strong>Method: </strong>
-                {order.paymentMethod}
-              </p>
-              {/* {order.isPaid ? (
+              <ListGroup.Item>
+                <h2>Payment Method</h2>
+                <p>
+                  <strong>Method: </strong>
+                  {order.paymentMethod}
+                </p>
+                {/* {order.isPaid ? (
                 <Message variant="success">Paid on {order.paidAt}</Message>
               ) : (
                 <Message variant="danger">Not Paid</Message>
               )} */}
-            </ListGroup.Item>
+              </ListGroup.Item>
 
-            <ListGroup.Item>
-              <h2>Order Items</h2>
-              {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
-              ) : (
-                <ListGroup variant="flush">
-                  {order.orderItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/Rs.{item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={4}>
-                          {item.qty} x Rs.{item.price} = Rs.{" "}
-                          {item.qty * item.price}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Order Items</h2>
+                {order.orderItems.length === 0 ? (
+                  <Message>Order is empty</Message>
+                ) : (
+                  <ListGroup variant="flush">
+                    {order.orderItems.map((item, index) => (
+                      <ListGroup.Item key={index}>
+                        <Row>
+                          <Col md={1} xs={2}>
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fluid
+                              rounded
+                            />
+                          </Col>
+                          <Col>
+                            <Link to={`/product/Rs.{item.product}`}>
+                              {item.name}
+                            </Link>
+                          </Col>
+                          <Col md={4} xs={3}>
+                            {item.qty} x Rs.{item.price} = Rs.{" "}
+                            {item.qty * item.price}
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                )}
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>Rs.{order.itemsPrice}.00</Col>
-                </Row>
-              </ListGroup.Item>
-              {/* <ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col md={4}>
+            <Card>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <h2>Order Summary</h2>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Items</Col>
+                    <Col>Rs.{order.itemsPrice}.00</Col>
+                  </Row>
+                </ListGroup.Item>
+                {/* <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
                   <Col>Rs.{order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item> */}
-              <ListGroup.Item>
-                {/* <Row>
+                <ListGroup.Item>
+                  {/* <Row>
                   <Col>Tax</Col>
                   <Col>Rs.{order.taxPrice}</Col>
                 </Row> */}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Total</Col>
-                  <Col>Rs.{order.totalPrice}.00</Col>
-                </Row>
-              </ListGroup.Item>
-              {/* {!order.isPaid && (
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Total</Col>
+                    <Col>Rs.{order.totalPrice}.00</Col>
+                  </Row>
+                </ListGroup.Item>
+                {/* {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />} */}
-              {/* {!sdkReady ? (
+                {/* {!sdkReady ? (
                     <Loader />
                   ) : (
                     <PayPalButton
@@ -216,27 +225,28 @@ const OrderScreen = ({ match, history }) => {
                       onSuccess={successPaymentHandler}
                     />
                   )} */}
-              {/* </ListGroup.Item>
+                {/* </ListGroup.Item>
               )} */}
-              {loadingDeliver && <Loader />}
-              {userInfo &&
-                userInfo.isAdmin &&
-                //order.isPaid &&
-                !order.isDelivered && (
-                  <ListGroup.Item>
-                    <Button
-                      type="button"
-                      className="btn btn-block"
-                      onClick={deliverHandler}>
-                      Mark As Delivered
-                    </Button>
-                  </ListGroup.Item>
-                )}
-            </ListGroup>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+                {loadingDeliver && <Loader />}
+                {userInfo &&
+                  userInfo.isAdmin &&
+                  //order.isPaid &&
+                  !order.isDelivered && (
+                    <ListGroup.Item>
+                      <Button
+                        type="button"
+                        className="btn btn-block"
+                        onClick={deliverHandler}>
+                        Mark As Delivered
+                      </Button>
+                    </ListGroup.Item>
+                  )}
+              </ListGroup>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 };
 
