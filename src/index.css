@@ -187,7 +187,7 @@ h1,h2,h5,h6,.cursive {
 /* Text anim */
 
 .text-anime{
-	color:#954f97;
+	color: #6f42c1;
 	height: 100%;
 	overflow: hidden;
 	background:#fff ; 
@@ -210,7 +210,12 @@ h1,h2,h5,h6,.cursive {
 	animation: reveal 3000ms ease-in-out forwards 200ms,
  glow 2500ms linear infinite 2000ms;
 }
+.text-anime-container object {
+	position: absolute;
 
+	left:calc(50% - 32px);
+	top:70%;
+}
 @keyframes reveal {
 	80% {
 		letter-spacing: 8px;
@@ -226,6 +231,7 @@ h1,h2,h5,h6,.cursive {
 		text-shadow: 0 0 8px #fff;
 	}
 }
+
 /* Footer */
 
 

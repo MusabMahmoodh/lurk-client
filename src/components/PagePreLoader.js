@@ -1,5 +1,5 @@
 import React from "react";
-
+import anim from "../assets/anim.svg";
 const PagePreLoader = () => {
   return (
     <div
@@ -14,6 +14,9 @@ const PagePreLoader = () => {
       }}
       className="text-anime-container">
       <h1 className="text-anime">LURK</h1>
+      <object type="image/svg+xml" data={anim}>
+        svg-animation
+      </object>
     </div>
   );
 };
