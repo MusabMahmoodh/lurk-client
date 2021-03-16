@@ -37,7 +37,11 @@ const ProductListScreen = ({ history, match }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  let keyword = history.location.search;
 
+  useEffect(() => {
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
   useEffect(() => {
     dispatch({ type: PRODUCT_CREATE_RESET });
 
