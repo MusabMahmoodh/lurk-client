@@ -48,7 +48,7 @@ const Input = () => {
       setCurrentCategory({});
       setKeyword("");
     }
-  }, [history.location.search]);
+  }, []);
   return (
     <div>
       <InputGroup style={{ maxWidth: "500px" }}>
