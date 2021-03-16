@@ -33,11 +33,6 @@ const SubMenu = (category) => {
                 setCurrenSubVariation(subVari);
               }
             });
-
-          //   vari.subVariations.length > 1 &&
-          // vari.subVariations.map((vari) => (
-
-          // ))
         }
       });
   }, [history]);

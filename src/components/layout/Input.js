@@ -46,6 +46,7 @@ const Input = () => {
       setCategory("");
       setCategoryName("All");
       setCurrentCategory({});
+      setKeyword("");
     }
   }, [history.location.search]);
   return (
@@ -83,6 +84,7 @@ const Input = () => {
           aria-describedby="basic-addon1"
           type="text"
           name="q"
+          value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && submitHandler(e)}
         />
