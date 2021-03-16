@@ -38,7 +38,7 @@ const Header = ({ position }) => {
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
           <Navbar.Brand>
             <a href="/">
-              <img src={Logo} height="30px" alt="logo" />
+              <img src={Logo} height="40px" alt="logo" />
             </a>
           </Navbar.Brand>
         </Col>

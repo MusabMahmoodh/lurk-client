@@ -4,7 +4,7 @@ import RecommendedCard from "./RecommendedCard";
 import Loader from "./PagePreLoader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
-import BgImg from "../assets/bg-image.jpg";
+import BgImg from "../assets/bg-image.svg";
 //if bg is true render background
 const RecommendedCarousal = ({ bg }) => {
   const dispatch = useDispatch();
