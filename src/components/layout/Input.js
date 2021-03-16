@@ -4,11 +4,10 @@ import {
   DropdownButton,
   Dropdown,
   FormControl,
-  Button,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { listCategories, categoryDetails } from "../../actions/categoryActions";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 const Input = () => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
@@ -41,7 +40,14 @@ const Input = () => {
     ) {
       history.push("/");
     }
-  }, [category]);
+  }, [category, dispatch]);
+  useEffect(() => {
+    if (history.location.search === "") {
+      setCategory("");
+      setCategoryName("All");
+      setCurrentCategory({});
+    }
+  }, [history.location.search]);
   return (
     <div>
       <InputGroup style={{ maxWidth: "500px" }}>
@@ -90,4 +96,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default withRouter(Input);

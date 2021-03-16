@@ -38,7 +38,7 @@ const Header = ({ position }) => {
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
           <Navbar.Brand>
             <LinkContainer to="/">
-              <img src={Logo} height="30px" alt="fireSpot" />
+              <img src={Logo} height="30px" alt="logo" />
             </LinkContainer>
           </Navbar.Brand>
         </Col>
@@ -92,9 +92,12 @@ const Header = ({ position }) => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : (
-                  <i
-                    class="fas fa-shopping-cart fa-2x"
-                    style={{ position: "relative" }}>
+                  ""
+                )}
+                <i
+                  class="fas fa-shopping-cart fa-2x"
+                  style={{ position: "relative" }}>
+                  {cartItems.reduce((acc, item) => acc + item.qty, 0) > 0 ? (
                     <div
                       style={{
                         background: "red",
@@ -114,8 +117,10 @@ const Header = ({ position }) => {
                         {cartItems.reduce((acc, item) => acc + item.qty, 0)}
                       </small>
                     </div>
-                  </i>
-                )}
+                  ) : (
+                    ""
+                  )}
+                </i>
               </Nav.Link>
             </LinkContainer>
           </Nav>
