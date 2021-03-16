@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import { Button, Badge } from "react-bootstrap";
 const SubMenu = (category) => {
   let history = useHistory();
@@ -19,6 +19,21 @@ const SubMenu = (category) => {
       );
     }
   };
+  useEffect(() => {
+    history.location.search.split("variation")[1] &&
+      category.category.variations.length > 1 &&
+      category.category.variations.forEach((vari) => {
+        if (
+          vari._id ===
+          history.location.search
+            .split("variation")[1]
+            .split("&")[0]
+            .split("=")[1]
+        ) {
+          setCurrenVariation(vari);
+        }
+      });
+  }, [history]);
   return (
     <div>
       {category.category.variations.length > 1 &&
@@ -68,4 +83,4 @@ const SubMenu = (category) => {
   );
 };
 
-export default SubMenu;
+export default withRouter(SubMenu);
