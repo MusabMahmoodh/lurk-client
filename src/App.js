@@ -27,10 +27,21 @@ import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import LoginScreen from "./screens/LoginScreen";
 import OrderScreen from "./screens/OrderScreen";
+import PagePreLoader from "../src/components/PagePreLoader";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [enter, setEnter] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setEnter(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="bg-body">
+      {enter && <PagePreLoader />}
+
       <Router>
         <Header position="sticky" />
 
