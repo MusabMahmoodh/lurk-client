@@ -27,9 +27,9 @@ function HomeScreen({ history }) {
   }, [dispatch, keyword]);
 
   return (
-    <div className="py-0 screen__container">
+    <div className="py-0">
       <ProductCarousel />
-      <PagePreLoader />
+
       {!keyword && (
         <>
           <h5 className="py-4 text-center">LURK Recommendations</h5>
