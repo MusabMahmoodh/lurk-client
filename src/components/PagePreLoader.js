@@ -13,7 +13,7 @@ const PagePreLoader = () => {
         right: "0",
       }}
       className="text-anime-container">
-      <h1 className="text-anime">LURK</h1>
+      <h1 className="text-anime"></h1>
       <object type="image/svg+xml" data={anim}>
         svg-animation
       </object>
