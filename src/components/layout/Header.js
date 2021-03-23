@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo.png";
+import Cart from "../../assets/cart-2.svg";
 import { logout } from "../../actions/userActions";
 
 import Input from "./Input";
@@ -94,9 +95,8 @@ const Header = ({ position }) => {
                 ) : (
                   ""
                 )}
-                <i
-                  class="fas fa-shopping-cart fa-2x"
-                  style={{ position: "relative" }}>
+                <div style={{ position: "relative", margin: 0, padding: 0 }}>
+                  <img src={Cart} alt="cart" style={{ width: "50px" }}></img>
                   {cartItems.reduce((acc, item) => acc + item.qty, 0) > 0 ? (
                     <div
                       style={{
@@ -110,8 +110,8 @@ const Header = ({ position }) => {
                         border: "2px solid white",
                         textAlign: "center",
                         position: "absolute",
-                        top: "-8px",
-                        left: "15px",
+                        top: "2px",
+                        right: "-5px",
                       }}>
                       <small className="text-center">
                         {cartItems.reduce((acc, item) => acc + item.qty, 0)}
@@ -120,7 +120,7 @@ const Header = ({ position }) => {
                   ) : (
                     ""
                   )}
-                </i>
+                </div>
               </Nav.Link>
             </LinkContainer>
           </Nav>

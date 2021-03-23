@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Badge } from "react-bootstrap";
 // import Rating from "./Rating";
 import { Link } from "react-router-dom";
-
+import Cart from "../assets/cart-1.svg";
 function Product({ product }) {
   return (
     <Card
@@ -73,11 +73,12 @@ function Product({ product }) {
             style={{
               color: "#6f42c1",
             }}>
-            <i
-              class="fas fa-shopping-cart"
+            <img
+              src={Cart}
               style={{
                 float: "right",
-              }}></i>
+                width: "30px",
+              }}></img>
           </Link>
         </Card.Text>
       </Card.Body>

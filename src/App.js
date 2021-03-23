@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setEnter(false);
-    }, 4500);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
   return (
