@@ -38,7 +38,7 @@ const SubMenu = (category) => {
   }, [history]);
   return (
     <div>
-      {category.category.variations.length > 1 &&
+      {category.category.variations.length > 0 &&
         category.category.variations.map((vari) => (
           <>
             <Button

@@ -1,16 +1,19 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap')
 main{
   min-height: 80vh;
  
 }
 
  * {
-    
-font-family: 'Roboto', sans-serif;
+    font-family: 'Bellota', cursive;
+
 	
 }
 h1,h2,h5,h6,.cursive {
 	font-family: 'Reggae One', cursive;
+}
+small {
+	font-family: 'Roboto', sans-serif;
 }
 .dark {
 	color:"black"

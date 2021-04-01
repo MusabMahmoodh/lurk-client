@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
 const Footer = () => {
   return (
     <footer className="footer-section ">
@@ -15,15 +16,32 @@ const Footer = () => {
               </div>
             </Col>
 
-            <Col className="text-center" xs={12} md={4}>
+            <Col className="text-center d-none d-md-block" xs={0} md={4}>
               <div className="footer-menu" style={{ color: "white" }}>
                 <a
                   target="_blank"
                   rel="noreferrer"
                   href="https://lurk.lk/store/terms">
-                  Terms And Condition
+                  Terms & Condition
                 </a>{" "}
                 ||{" "}
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://lurk.lk/store/privacy">
+                  Privacy Policy
+                </a>
+              </div>
+            </Col>
+            <Col className="text-center d-md-none " xs={12} md={0}>
+              <div className="footer-menu" style={{ color: "white" }}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://lurk.lk/store/terms">
+                  Terms & Condition
+                </a>{" "}
+                <br />
                 <a
                   target="_blank"
                   rel="noreferrer"
