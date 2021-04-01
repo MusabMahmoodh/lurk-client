@@ -52,20 +52,22 @@ function RecommendedCard({ product }) {
         {/* </LinkContainer> */}
         <Card.Text as="div" style={{ marginTop: 0, marginBottom: 0 }}>
           Rs.{product.newPrice}
-          <strike
-            style={{
-              color: "red",
-            }}>
-            <div
+          {Number(product.newPrice) !== Number(product.price) && (
+            <strike
               style={{
-                margin: "0",
-                width: "100%",
-                height: ".1px",
-                background: "#95a5a6",
-                padding: "0",
-              }}></div>
-            <small>Rs.{product.price}</small>{" "}
-          </strike>
+                color: "red",
+              }}>
+              <div
+                style={{
+                  margin: "0",
+                  width: "100%",
+                  height: ".1px",
+                  background: "#95a5a6",
+                  padding: "0",
+                }}></div>
+              <small>Rs.{product.price}</small>{" "}
+            </strike>
+          )}
         </Card.Text>
       </Card.Body>
     </Card>

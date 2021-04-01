@@ -50,14 +50,16 @@ function Product({ product }) {
         </Card.Title>
         <Card.Text as="div">
           Rs.{product.newPrice}
-          <strike
-            style={{
-              color: "red",
+          {Number(product.newPrice) !== Number(product.price) && (
+            <strike
+              style={{
+                color: "red",
 
-              marginLeft: "10px",
-            }}>
-            <small>Rs.{product.price}</small>
-          </strike>
+                marginLeft: "10px",
+              }}>
+              <small>Rs.{product.price}</small>
+            </strike>
+          )}
         </Card.Text>
 
         <Card.Text
@@ -75,6 +77,7 @@ function Product({ product }) {
             }}>
             <img
               src={Cart}
+              alt="add to cart"
               style={{
                 float: "right",
                 width: "30px",
