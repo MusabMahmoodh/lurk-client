@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 main{
   min-height: 80vh;
- 
+  background: #161623;  
 }
 
+
  * {
-    font-family: 'Bellota', cursive;
+    font-family: 'Patrick Hand', cursive;
 
 	
 }

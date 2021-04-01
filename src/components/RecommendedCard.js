@@ -13,8 +13,12 @@ function RecommendedCard({ product }) {
         width: "100px",
         minWidth: "100px",
         marginBottom: 0,
-        background: "#ecf0f1",
-        color: "#7b8a8b",
+
+        color: "black",
+        background: "rgba(255,255,255,0.5)",
+        borderTop: "1px solid rgba(255,255,255,1)",
+        borderLeft: "1px solid rgba(255,255,255,1)",
+        backdropFilter: "blur(10px)",
       }}>
       <LinkContainer to={`/product/${product._id}`}>
         <Card.Img

@@ -10,7 +10,13 @@ function Product({ product }) {
       style={{
         margin: "auto",
         height: "100%",
-        boxShadow: " 1px 2px 5px 0px rgba(0,0,0,0.75)",
+
+        boxShadow: "1px 2px 5px rgba(0,0,0,0.5)",
+        borderRadius: "15px",
+        background: "rgba(255,255,255,0.8)",
+        borderTop: "1px solid rgba(2,2,255,1)",
+        borderLeft: "1px solid rgba(2,2,255,1)",
+        backdropFilter: "blur(10px)",
       }}>
       <Link to={`/product/${product._id}`}>
         <Card.Img className=" p-1 rounded" src={product.image} />
