@@ -28,10 +28,9 @@ function HomeScreen({ history }) {
 
   return (
     <div className="py-0">
-      <ProductCarousel />
-
       {!keyword && (
         <>
+          <ProductCarousel />
           <h5 className="py-4 text-center">LURK Recommendations</h5>
           <RecommendedCarousal bg={true} />
         </>
