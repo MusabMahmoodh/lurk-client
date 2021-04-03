@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap');
 main{
   min-height: 80vh;
   background: #161623;  
@@ -6,7 +6,7 @@ main{
 
 
  * {
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Averia Serif Libre', cursive;
 
 	
 }

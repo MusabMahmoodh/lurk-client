@@ -14,9 +14,6 @@ function Product({ product }) {
         boxShadow: "1px 2px 5px rgba(0,0,0,0.5)",
         borderRadius: "15px",
         background: "rgba(255,255,255,0.8)",
-        borderTop: "1px solid rgba(2,2,255,1)",
-        borderLeft: "1px solid rgba(2,2,255,1)",
-        backdropFilter: "blur(10px)",
       }}>
       <Link to={`/product/${product._id}`}>
         <Card.Img className=" p-1 rounded" src={product.image} />
@@ -50,11 +47,19 @@ function Product({ product }) {
             overflow: "hidden",
             textOverflow: "ellipsis",
             marginTop: "5px",
-            marginBottom: "0",
+            marginBottom: "35px",
           }}>
           <h6>{product.name}</h6>
         </Card.Title>
-        <Card.Text as="div">
+
+        <Card.Text
+          as="div"
+          style={{
+            position: "absolute",
+            bottom: "25px",
+            borderLeft: "1px solid #3333f3",
+            paddingLeft: "5px",
+          }}>
           Rs.{product.newPrice}
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
