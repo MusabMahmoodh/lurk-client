@@ -64,7 +64,7 @@ function Product({ product }) {
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
               style={{
-                color: "red",
+                color: "#18BC9C",
 
                 marginLeft: "10px",
               }}>

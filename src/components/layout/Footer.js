@@ -53,7 +53,7 @@ const Footer = () => {
             <Col className="text-center text-lg-right" xs={12} md={4}>
               <div className="copyright-text">
                 <p>
-                  Developed By:
+                  Developed By:..{" "}
                   <a
                     target="_blank"
                     rel="noreferrer"
