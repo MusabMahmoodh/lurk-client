@@ -8,7 +8,7 @@ import FormContainer from "../components/FormContainer";
 import { listProductDetails, updateProduct } from "../actions/productActions";
 import { listCategories } from "../actions/categoryActions";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
-
+import RichText from "../components/utils/RichText";
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
 
@@ -116,7 +116,7 @@ const ProductEditScreen = ({ match, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(category);
+    // console.log(description);
     dispatch(
       updateProduct({
         _id: productId,
@@ -279,12 +279,7 @@ const ProductEditScreen = ({ match, history }) => {
             <hr></hr>
             <Form.Group controlId="description">
               <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Enter description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}></Form.Control>
+              <RichText content={description} setContent={setDescription} />
             </Form.Group>
 
             <Button type="submit" variant="primary">

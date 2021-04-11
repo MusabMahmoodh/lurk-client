@@ -56,7 +56,11 @@ const ProductScreen = ({ match, history }) => {
                 <ListGroup.Item className="bg-light text-dark">
                   <h5>{product.name}</h5>
 
-                  <p className="cursive text-muted">{product.description}</p>
+                  <p
+                    className="text-muted"
+                    dangerouslySetInnerHTML={{
+                      __html: product.description,
+                    }}></p>
                 </ListGroup.Item>
                 {product.isAvailable && (
                   <ListGroup.Item className="bg-light text-dark">

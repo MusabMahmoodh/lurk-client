@@ -6,17 +6,19 @@ import Cart from "../assets/cart-1.svg";
 function Product({ product }) {
   return (
     <Card
-      className="p-1 rounded"
+      className=" rounded"
       style={{
         margin: "auto",
         height: "100%",
 
         boxShadow: "1px 2px 5px rgba(0,0,0,0.5)",
         borderRadius: "15px",
-        background: "rgba(255,255,255,0.8)",
+        background: "rgba(0,0,0,1)",
+        position: "relative",
+        backdropFilter: "blur(10px)",
       }}>
       <Link to={`/product/${product._id}`}>
-        <Card.Img className=" p-1 rounded" src={product.image} />
+        <Card.Img src={product.image} />
       </Link>
 
       <Card.Body style={{ padding: "8px", position: "relative" }}>
@@ -48,6 +50,7 @@ function Product({ product }) {
             textOverflow: "ellipsis",
             marginTop: "5px",
             marginBottom: "35px",
+            color: "white",
           }}>
           <h6>{product.name}</h6>
         </Card.Title>
@@ -59,12 +62,13 @@ function Product({ product }) {
             bottom: "25px",
             borderLeft: "1px solid #3333f3",
             paddingLeft: "5px",
+            color: "#18BC9C",
           }}>
           Rs.{product.newPrice}
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
               style={{
-                color: "#18BC9C",
+                color: "red",
 
                 marginLeft: "10px",
               }}>
@@ -77,9 +81,16 @@ function Product({ product }) {
           as="div"
           style={{
             position: "absolute",
-            bottom: "2px",
-            right: "2px",
+            bottom: "0",
+            right: "3px",
+            height: "40px",
+            width: "40px",
             color: "#6f42c1",
+            background: "white",
+            borderRadius: "25px 25px 0 0 ",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}>
           <Link
             to={`/product/${product._id}`}
@@ -90,8 +101,8 @@ function Product({ product }) {
               src={Cart}
               alt="add to cart"
               style={{
-                float: "right",
-                width: "30px",
+                // float: "right",
+                width: "23px",
               }}></img>
           </Link>
         </Card.Text>
