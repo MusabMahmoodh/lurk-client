@@ -84,18 +84,25 @@ const ProductScreen = ({ match, history }) => {
                 )}
 
                 <ListGroup.Item className="bg-light text-dark cursive">
-                  Selling Price: <strong>Rs.{product.newPrice}.00</strong>
+                  Selling Price:{" "}
+                  <strong style={{ color: "#18BC9C" }}>
+                    Rs.{product.newPrice}.00
+                  </strong>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-light text-dark cursive">
-                  Market Price:{" "}
-                  <strike
-                    style={{
-                      color: "red",
+                  {Number(product.newPrice) !== Number(product.price) && (
+                    <>
+                      Market Price:
+                      <strike
+                        style={{
+                          color: "red",
 
-                      marginLeft: "10px",
-                    }}>
-                    <small>Rs.{product.price}.00</small>
-                  </strike>
+                          marginLeft: "10px",
+                        }}>
+                        <small>Rs.{product.price}</small>
+                      </strike>
+                    </>
+                  )}
                 </ListGroup.Item>
               </ListGroup>
             </Col>

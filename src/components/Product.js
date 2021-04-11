@@ -13,7 +13,7 @@ function Product({ product }) {
 
         boxShadow: "1px 2px 5px rgba(0,0,0,0.5)",
         borderRadius: "15px",
-        background: "rgba(0,0,0,1)",
+        background: "rgba(0,0,0,.1)",
         position: "relative",
         backdropFilter: "blur(10px)",
       }}>
@@ -50,7 +50,7 @@ function Product({ product }) {
             textOverflow: "ellipsis",
             marginTop: "5px",
             marginBottom: "35px",
-            color: "white",
+            color: "black",
           }}>
           <h6>{product.name}</h6>
         </Card.Title>
@@ -86,7 +86,7 @@ function Product({ product }) {
             height: "40px",
             width: "40px",
             color: "#6f42c1",
-            background: "white",
+            background: "whitesmoke",
             borderRadius: "25px 25px 0 0 ",
             display: "flex",
             alignItems: "center",

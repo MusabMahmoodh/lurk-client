@@ -11,6 +11,7 @@ const SubMenu = (category) => {
 
   useEffect(() => {
     history.location.search.split("variation")[1] &&
+      category.category.variations &&
       category.category.variations.length > 1 &&
       category.category.variations.forEach((vari) => {
         if (
@@ -38,7 +39,8 @@ const SubMenu = (category) => {
   }, [history]);
   return (
     <div>
-      {category.category.variations.length > 0 &&
+      {category.category.variations &&
+        category.category.variations.length > 0 &&
         category.category.variations.map((vari) => (
           <>
             <Button

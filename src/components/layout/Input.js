@@ -42,13 +42,13 @@ const Input = () => {
     }
   }, [category, dispatch]);
   useEffect(() => {
-    if (history.location.search === "") {
+    if (history.location.pathname === "/" && history.location.search === "") {
       setCategory("");
       setCategoryName("All");
       setCurrentCategory({});
       setKeyword("");
     }
-  }, []);
+  }, [history.location]);
   return (
     <div>
       <InputGroup style={{ maxWidth: "500px" }}>

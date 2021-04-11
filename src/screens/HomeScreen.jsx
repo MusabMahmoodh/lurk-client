@@ -43,7 +43,7 @@ function HomeScreen({ history }) {
       ) : (
         <div>
           <h5 className="text-center py-3">Latest Products</h5>
-          {Object.keys(category).length > 1 && <SubMenu category={category} />}
+          {keyword && <SubMenu category={category} />}
           <hr style={{ marginTop: 0 }}></hr>
 
           <Row style={{ width: "100%", margin: "auto" }}>
