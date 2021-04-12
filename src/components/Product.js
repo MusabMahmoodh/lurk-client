@@ -6,14 +6,14 @@ import Cart from "../assets/cart-1.svg";
 function Product({ product }) {
   return (
     <Card
-      className=" rounded"
+      className="product-card rounded"
       style={{
         margin: "auto",
         height: "100%",
 
         boxShadow: "1px 2px 5px rgba(0,0,0,0.5)",
         borderRadius: "15px",
-        background: "rgba(0,0,0,.1)",
+        background: "white",
         position: "relative",
         backdropFilter: "blur(10px)",
       }}>
@@ -62,13 +62,13 @@ function Product({ product }) {
             bottom: "25px",
             borderLeft: "1px solid #3333f3",
             paddingLeft: "5px",
-            color: "#18BC9C",
+            color: "black",
           }}>
           Rs.{product.newPrice}
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
               style={{
-                color: "red",
+                color: "#18BC9C",
 
                 marginLeft: "10px",
               }}>
@@ -81,13 +81,11 @@ function Product({ product }) {
           as="div"
           style={{
             position: "absolute",
-            bottom: "0",
-            right: "3px",
-            height: "40px",
-            width: "40px",
+            bottom: "5px",
+            right: "5px",
+
             color: "#6f42c1",
-            background: "whitesmoke",
-            borderRadius: "25px 25px 0 0 ",
+
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

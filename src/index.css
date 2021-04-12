@@ -264,3 +264,28 @@ small {
 	background: #6f42c1;
 	color:#fff;
 }
+
+/*  */
+.product-card{
+	position: relative;
+}
+.product-card::after {
+	content: "";
+	height:100%;
+	width:100%;
+	background-color: rgba(0,0,0,0.1) !important;
+	position: absolute;
+	right:0;
+	bottom:0;
+	clip-path: circle(50% at 100% 100%);
+}
+.product-card::before {
+	content: "";
+	height:100%;
+	width:100%;
+	background-color: rgba(0,0,0,0.2) !important;
+	position: absolute;
+	right:0;
+	bottom:0;
+	clip-path: circle(26.0% at 100% 100%);
+}
