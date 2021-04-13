@@ -58,7 +58,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                     href="https://wa.me/94768306127">
-                    Musab Mahmoodh
+                    Developer MLA
                   </a>
                 </p>
               </div>
