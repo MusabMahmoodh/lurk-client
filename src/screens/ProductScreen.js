@@ -54,10 +54,11 @@ const ProductScreen = ({ match, history }) => {
             <Col xs={12} md={3}>
               <ListGroup variant="flush">
                 <ListGroup.Item className="bg-light text-dark">
-                  <h5>{product.name}</h5>
+                  <h5 style={{ color: "black" }}>{product.name}</h5>
 
                   <p
-                    className="text-muted"
+                    // className="text-muted"
+                    style={{ color: "rgba(0,0,0,0.9)" }}
                     dangerouslySetInnerHTML={{
                       __html: product.description,
                     }}></p>
@@ -65,7 +66,9 @@ const ProductScreen = ({ match, history }) => {
                 {product.isAvailable && (
                   <ListGroup.Item className="bg-light text-dark">
                     <Row>
-                      <Col className="cursive">Quantity</Col>
+                      <Col className="cursive" style={{ color: "black" }}>
+                        Quantity
+                      </Col>
                       <Col xs="auto" className="my-1">
                         <InputGroup size="sm" className="mb-3">
                           <FormControl
@@ -83,13 +86,17 @@ const ProductScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 )}
 
-                <ListGroup.Item className="bg-light text-dark cursive">
+                <ListGroup.Item
+                  className="bg-light text-dark cursive"
+                  style={{ color: "black !important" }}>
                   Selling Price:{" "}
                   <strong style={{ color: "#18BC9C" }}>
                     Rs.{product.newPrice}.00
                   </strong>
                 </ListGroup.Item>
-                <ListGroup.Item className="bg-light text-dark cursive">
+                <ListGroup.Item
+                  className="bg-light text-dark cursive"
+                  style={{ color: "black" }}>
                   {Number(product.newPrice) !== Number(product.price) && (
                     <>
                       Market Price:

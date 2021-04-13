@@ -5,6 +5,7 @@ import Loader from "./PagePreLoader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
 import BgImg from "../assets/bg-image.svg";
+import BgSecondary from "../assets/bg-secondary.svg";
 //if bg is true render background
 const RecommendedCarousal = ({ bg }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const RecommendedCarousal = ({ bg }) => {
           className="scrolling-wrapper p-2"
           style={{
             marginBottom: "3px",
-
+            backgroundImage: `url(${BgSecondary})`,
             borderRadius: "10px",
             display: "flex",
             // marginTop: "-20px",

@@ -58,14 +58,14 @@ function RecommendedCard({ product }) {
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
               style={{
-                color: "red",
+                color: "",
               }}>
               <div
                 style={{
                   margin: "0",
                   width: "100%",
                   height: ".1px",
-                  background: "#95a5a6",
+                  background: "#18BC9C",
                   padding: "0",
                 }}></div>
               <small>Rs.{product.price}</small>{" "}
