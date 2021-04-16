@@ -54,7 +54,7 @@ const Input = () => {
       <InputGroup style={{ maxWidth: "500px" }}>
         <DropdownButton
           as={InputGroup.Prepend}
-          variant="outline-secondary"
+          variant="secondary"
           title={categoryName}
           id="input-group-dropdown-1">
           <Dropdown.Item
@@ -89,7 +89,10 @@ const Input = () => {
           onKeyPress={(e) => e.key === "Enter" && submitHandler(e)}
         />
         <InputGroup.Append>
-          <InputGroup.Text id="basic-addon2" onClick={submitHandler}>
+          <InputGroup.Text
+            id="basic-addon2"
+            variant="secondary"
+            onClick={submitHandler}>
             <i class="fas fa-search"></i>
           </InputGroup.Text>
         </InputGroup.Append>

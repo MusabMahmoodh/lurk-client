@@ -265,7 +265,7 @@ small {
 	background: #6f42c1;
 	color:#fff;
 }
-@keyframes ripple {
+/* @keyframes ripple {
 	from {
 		clip-path: circle(0% at 100% 100%);
 		opacity: 0;
@@ -276,12 +276,12 @@ small {
 		clip-path: circle(100% at 100% 100%);
 		opacity: 1;
 	}
-}
+} */
 /*  */
 .product-card{
 	position: relative;
 }
-.product-card::after {
+/* .product-card::after {
 	content: "";
 	height:100%;
 	width:100%;
@@ -292,7 +292,7 @@ small {
 	clip-path: circle(32% at 100% 100%);
 	animation: ripple 3s  infinite linear ;
 	z-index: -456;
-}
+} */
 .product-card::before {
 	content: "";
 	height:100%;
@@ -304,3 +304,53 @@ small {
 	clip-path: circle(26.0% at 100% 100%);
 	z-index: 1000;
 }
+
+/* Navabar */
+.navbar{
+	position: relative;
+	z-index: 9999;
+	background: url('./assets/header.svg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.navbar::after{
+	content:"";
+	position: absolute;
+	left:0;
+	bottom:0;
+	width: 100%;
+	height: 100%;
+	background: white;
+	
+	z-index:-6999;
+	clip-path: polygon(0 0, 15% 0, 22% 66%, 0 100%);
+
+
+
+}
+
+
+@media (max-width: 480px) { 
+	.navbar::after{
+		clip-path: polygon(0 0, 35% 0, 52% 57%, 0 100%);
+
+
+
+
+
+	}
+	
+}
+/* .navbar::before{
+	content:"";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #6439b4;
+	z-index: 6999;
+	clip-path: circle(28.4% at 0 55%);
+
+
+} */

@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo.png";
 import Cart from "../../assets/cart-2.svg";
 import { logout } from "../../actions/userActions";
-
+import Bg from "../../assets/header.svg";
 import Input from "./Input";
 const Header = ({ position }) => {
   const dispatch = useDispatch();
@@ -21,21 +21,22 @@ const Header = ({ position }) => {
 
   return (
     <Navbar
-      bg="light"
       style={{
         boxShadow: " 0px 3px 2px 0px rgba(0,0,0,0.44)",
         position: `${position}`,
         padding: 0,
         top: "0",
-        zIndex: "9999",
-      }}>
+        zIndex: "7999",
+      }}
+      bg="light">
       <Row
         style={{
           width: "100%",
           maxWidth: "1300px",
           margin: "auto",
           paddingTop: "10px",
-        }}>
+        }}
+        className="navbar">
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
           <Navbar.Brand>
             <a href="/">
