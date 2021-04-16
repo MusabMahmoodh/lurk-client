@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, NavDropdown, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
-import Logo from "../../assets/Lurk-Logo.png";
+import Logo from "../../assets/Lurk-Logo-white.svg";
 import Cart from "../../assets/cart-2.svg";
 import { logout } from "../../actions/userActions";
 import Bg from "../../assets/header.svg";

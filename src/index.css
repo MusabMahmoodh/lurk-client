@@ -325,7 +325,7 @@ small {
 	background: white;
 	
 	z-index:-6999;
-	clip-path: circle(30.0% at 0 51%);
+	clip-path: circle(23.8% at 100% 42%);
 
 
 
@@ -335,9 +335,9 @@ small {
 
 @media (max-width: 480px) { 
 	.navbar::after{
-		clip-path: circle(40.8% at 0 0);
+		
 
-
+		clip-path: circle(47.3% at 100% 0);
 
 
 
@@ -347,7 +347,8 @@ small {
 
 @media (max-width: 520px) { 
 	.navbar::after{
-		clip-path: circle(71.1% at 0 0);
+		clip-path: circle(43.1% at 100% 42%);		
+	
 
 
 
