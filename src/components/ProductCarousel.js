@@ -22,7 +22,7 @@ function ProductCarousel() {
   ) : error ? (
     <Message variant="danger">{error}</Message>
   ) : (
-    <Carousel pause="hover" autoPlay={true} interval={4000} indicators={false}>
+    <Carousel pause="hover" autoPlay={true} interval={3000} indicators={false}>
       {ads.advertisement &&
         ads.advertisement.map((ad) => (
           <Carousel.Item key={ad._id}>

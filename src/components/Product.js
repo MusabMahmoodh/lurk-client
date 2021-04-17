@@ -1,12 +1,17 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
 // import Rating from "./Rating";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Cart from "../assets/cart-1.svg";
 function Product({ product }) {
+  let history = useHistory();
+  const goToProduct = () => {
+    history.push(`/product/${product._id}`);
+  };
   return (
     <Card
       className="product-card rounded"
+      onClick={() => goToProduct()}
       style={{
         margin: "auto",
         height: "100%",
@@ -16,6 +21,7 @@ function Product({ product }) {
         background: "white",
         position: "relative",
         backdropFilter: "blur(10px)",
+        cursor: "pointer",
       }}>
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} />

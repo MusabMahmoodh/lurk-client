@@ -48,9 +48,12 @@ function CartScreen({ match, location, history }) {
       </Link>
       <Col xs={12}>
         <h2 className="pb-2 ">Shopping Cart</h2>
-        <small className="text-danger">
-          <strong>Minimum Order Value Rs.500.00</strong>
-        </small>
+        <h5 className="text-danger">
+          <strong style={{ fontWeight: "900", fontsize: "18px!important" }}>
+            Minimum Order Value{" "}
+            <span style={{ fontWeight: "500" }}>Rs.500.00</span>
+          </strong>
+        </h5>
       </Col>
 
       <Col md={8}>

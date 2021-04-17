@@ -90,7 +90,7 @@ const ProductScreen = ({ match, history }) => {
                   className="bg-light text-dark cursive"
                   style={{ color: "black !important" }}>
                   Selling Price:{" "}
-                  <strong style={{ color: "#18BC9C" }}>
+                  <strong style={{ color: "black" }}>
                     Rs.{product.newPrice}.00
                   </strong>
                 </ListGroup.Item>
@@ -102,7 +102,7 @@ const ProductScreen = ({ match, history }) => {
                       Market Price:
                       <strike
                         style={{
-                          color: "red",
+                          color: "#18BC9C",
 
                           marginLeft: "10px",
                         }}>

@@ -15,11 +15,11 @@ function Paginate({ pages, page, keyword = "", isAdmin = false }) {
     keyword.replace(
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
       function ($0, $1, $2, $3) {
-        objURL = { ...objURL, $1: $3 };
+        objURL = { ...objURL, [$1]: $3 };
       }
     );
   }
-
+  // console.log(keyword);
   return (
     pages > 1 && (
       <Pagination className="py-3">

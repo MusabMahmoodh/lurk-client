@@ -2,12 +2,17 @@ import React from "react";
 import { Card, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 // import Rating from "./Rating";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function RecommendedCard({ product }) {
+  let history = useHistory();
+  const goToProduct = () => {
+    history.push(`/product/${product._id}`);
+  };
   return (
     <Card
       className="p-1 rounded"
+      onClick={() => goToProduct()}
       style={{
         margin: "3px",
         width: "100px",
@@ -18,6 +23,7 @@ function RecommendedCard({ product }) {
         background: "rgba(255,255,255,.9)",
         borderTop: "1px solid rgba(255,255,255,1)",
         borderLeft: "1px solid rgba(255,255,255,1)",
+        cursor: "pointer",
       }}>
       <LinkContainer to={`/product/${product._id}`}>
         <Card.Img
@@ -58,17 +64,17 @@ function RecommendedCard({ product }) {
           {Number(product.newPrice) !== Number(product.price) && (
             <strike
               style={{
-                color: "",
+                color: "#18BC9C",
               }}>
               <div
                 style={{
                   margin: "0",
                   width: "100%",
                   height: ".1px",
-                  background: "#18BC9C",
+                  background: "white",
                   padding: "0",
                 }}></div>
-              <small>Rs.{product.price}</small>{" "}
+              <small style={{ color: "#18BC9C" }}>Rs.{product.price}</small>{" "}
             </strike>
           )}
         </Card.Text>
