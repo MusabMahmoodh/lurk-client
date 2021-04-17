@@ -27,7 +27,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import LoginScreen from "./screens/LoginScreen";
 import OrderScreen from "./screens/OrderScreen";
-import PagePreLoader from "../src/components/PagePreLoader";
+import AppPreLoader from "../src/components/AppPreLoader";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
   }, []);
   return (
     <div className="bg-body">
-      {enter && <PagePreLoader />}
+      {enter && <AppPreLoader />}
 
       <Router>
         <Header position="sticky" />

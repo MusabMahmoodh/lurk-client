@@ -1,5 +1,6 @@
 import React from "react";
-import anim from "../assets/anim.svg";
+import { Spinner } from "react-bootstrap";
+
 const PagePreLoader = () => {
   return (
     <div
@@ -13,10 +14,18 @@ const PagePreLoader = () => {
         right: "0",
       }}
       className="text-anime-container">
-      <h1 className="text-anime"></h1>
-      <object type="image/svg+xml" data={anim}>
-        svg-animation
-      </object>
+      <div className="spinners">
+        <div className="" style={{ color: "white" }}>
+          <h3>Processing...</h3>
+        </div>
+        <div className="">
+          <Spinner animation="grow" variant="light" />
+          {"  "}
+          <Spinner animation="grow" variant="light" />
+          {"  "}
+          <Spinner animation="grow" variant="light" />
+        </div>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import Logo from "../../assets/Lurk-Logo-white.svg";
 import Cart from "../../assets/cart-2.svg";
 import { logout } from "../../actions/userActions";
-import Bg from "../../assets/header.svg";
+
 import Input from "./Input";
 const Header = ({ position }) => {
   const dispatch = useDispatch();
@@ -39,9 +39,9 @@ const Header = ({ position }) => {
         className="navbar">
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
           <Navbar.Brand>
-            <a href="/">
+            <LinkContainer to="/">
               <img src={Logo} height="40px" alt="logo" />
-            </a>
+            </LinkContainer>
           </Navbar.Brand>
         </Col>
         <Col
