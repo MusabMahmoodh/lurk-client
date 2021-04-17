@@ -48,6 +48,17 @@ const Input = () => {
       setCurrentCategory({});
       setKeyword("");
     }
+    // else if (
+    //   // history.location.pathname === "/" &&
+    //   history.location.search.split("keyword")[1]?.split("=")[1]?.split("&")[0]
+    //     .length > 1
+    // ) {
+    //   // history.push(`/?keyword=${keyword}&page=1`);
+    //   // setCategory("");
+    //   // setCategoryName("All");
+
+    //   // setCurrentCategory({});
+    // }
   }, [history.location]);
   return (
     <div>
