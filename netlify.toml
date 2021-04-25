@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/product/:id"
+  from = "/product/*"
   to = "www.google.com"
   status = 200
 
