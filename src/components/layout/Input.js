@@ -38,7 +38,7 @@ const Input = () => {
       categoryName === "All" &&
       history.location.pathname !== "/owowon"
     ) {
-      history.push("/");
+      history.push(history.location.pathname);
     }
   }, [category, dispatch]);
   useEffect(() => {

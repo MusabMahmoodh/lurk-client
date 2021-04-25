@@ -43,7 +43,9 @@ function CartScreen({ match, location, history }) {
   }, [cartItems]);
   return (
     <Row className="py-2 ">
-      <Link to="/" className="btn btn-outline-dark my-3">
+      <Link
+        onClick={() => history.goBack()}
+        className="btn btn-outline-dark my-3">
         Go Back
       </Link>
       <Col xs={12}>
