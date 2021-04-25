@@ -18,7 +18,7 @@ const PagePreLoader = () => {
         <div className="" style={{ color: "white" }}>
           <h3>Processing...</h3>
         </div>
-        <div className="">
+        <div className="" >
           <Spinner animation="grow" variant="light" />
           {"  "}
           <Spinner animation="grow" variant="light" />
