@@ -1,7 +1,8 @@
 [[redirects]]
-  from = "/product/:id*"
+  from = "/product/:id"
   to = "www.google.com"
   status = 200
+
 [[redirects]]
   from = "/*"
   to = "/"
