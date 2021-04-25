@@ -19,7 +19,7 @@ const ToHome = () => {
         className="btn-block"
         onClick={() => history.push("/")}
         variant="primary">
-        <i class="fas fa-store"></i> Back to store
+        <i class="fas fa-store"></i> Back to Store
       </Button>
     </div>
   );
