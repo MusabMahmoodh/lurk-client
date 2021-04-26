@@ -20,6 +20,7 @@ import { listProductDetails } from "../actions/productActions";
 import PagePreLoader from "../components/PagePreLoader";
 import Message from "../components/Message";
 import RecommendedCarousal from "../components/RecommendedCarousal";
+import ShareButtons from "../components/ShareButtons";
 const ProductScreen = ({ match, history }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
@@ -38,11 +39,23 @@ const ProductScreen = ({ match, history }) => {
   return (
     <>
       <div>
-        <Link
-          onClick={() => history.goBack()}
-          className="btn btn-outline-dark my-3 mb-3">
-          Go Back
-        </Link>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}>
+          <Link
+            onClick={() => history.goBack()}
+            className="btn btn-outline-dark my-3 mb-3">
+            Go Back
+          </Link>
+          <ShareButtons
+            name={loading ? "" : product?.name}
+            shareMedia={loading ? "" : product?.image}
+          />
+        </div>
+
         {loading ? (
           <PagePreLoader />
         ) : error ? (
