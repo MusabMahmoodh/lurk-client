@@ -19,6 +19,18 @@ import {
   ORDER_DELIVER_FAIL,
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_REQUEST,
+  ORDER_CANCEL_FAIL,
+  ORDER_CANCEL_SUCCESS,
+  ORDER_CANCEL_REQUEST,
+  ORDER_CANCEL_RESET,
+  ORDER_HOLD_FAIL,
+  ORDER_HOLD_SUCCESS,
+  ORDER_HOLD_REQUEST,
+  ORDER_HOLD_RESET,
+  ORDER_DELAY_FAIL,
+  ORDER_DELAY_SUCCESS,
+  ORDER_DELAY_REQUEST,
+  ORDER_DELAY_RESET,
 } from "../constants/orderConstants";
 import { SERVER_URL } from "../constants/serverAPI";
 import { logout } from "./userActions";
@@ -182,6 +194,126 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     }
     dispatch({
       type: ORDER_DELIVER_FAIL,
+      payload: message,
+    });
+  }
+};
+export const cancelOrder = (order) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_CANCEL_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      `${SERVER_URL}/api/orders/${order._id}/cancel`,
+      {},
+      config
+    );
+
+    dispatch({
+      type: ORDER_DELIVER_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === "Not authorized, token failed") {
+      dispatch(logout());
+    }
+    dispatch({
+      type: ORDER_CANCEL_FAIL,
+      payload: message,
+    });
+  }
+};
+export const holdOrder = (order) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_HOLD_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      `${SERVER_URL}/api/orders/${order._id}/hold`,
+      {},
+      config
+    );
+
+    dispatch({
+      type: ORDER_HOLD_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === "Not authorized, token failed") {
+      dispatch(logout());
+    }
+    dispatch({
+      type: ORDER_HOLD_FAIL,
+      payload: message,
+    });
+  }
+};
+export const delayOrder = (order) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_DELAY_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      `${SERVER_URL}/api/orders/${order._id}/delay`,
+      {},
+      config
+    );
+
+    dispatch({
+      type: ORDER_DELAY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === "Not authorized, token failed") {
+      dispatch(logout());
+    }
+    dispatch({
+      type: ORDER_DELAY_FAIL,
       payload: message,
     });
   }

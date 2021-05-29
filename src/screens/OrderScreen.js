@@ -12,6 +12,9 @@ import {
   getOrderDetails,
   //   payOrder,
   deliverOrder,
+  cancelOrder,
+  holdOrder,
+  delayOrder,
 } from "../actions/orderActions";
 import {
   ORDER_PAY_RESET,
@@ -93,6 +96,21 @@ const OrderScreen = ({ match, history }) => {
     dispatch(deliverOrder(order));
     alert("Successfully delivered");
     history.push("/admin/orderlist");
+  };
+  const deliverCancelHandler = () => {
+    dispatch(cancelOrder(order));
+    alert("Order cancelled");
+    // history.push("/admin/orderlist");
+  };
+  const deliverHoldHandler = () => {
+    dispatch(holdOrder(order));
+    alert("Order on hold");
+    // history.push("/admin/orderlist");
+  };
+  const deliverDelayHandler = () => {
+    dispatch(deliverOrder(order));
+    alert("Delivery delayed");
+    // history.push("/admin/orderlist");
   };
 
   return loading ? (
@@ -239,9 +257,27 @@ const OrderScreen = ({ match, history }) => {
                     <ListGroup.Item>
                       <Button
                         type="button"
-                        className="btn btn-block"
+                        className="btn btn-block btn-success"
                         onClick={deliverHandler}>
                         Mark As Delivered
+                      </Button>
+                      <Button
+                        type="button"
+                        className="btn btn-block btn-danger"
+                        onClick={deliverCancelHandler}>
+                        Mark As Cancelled
+                      </Button>
+                      <Button
+                        type="button"
+                        className="btn btn-block btn-warning"
+                        onClick={deliverHoldHandler}>
+                        Mark As On hold
+                      </Button>
+                      <Button
+                        type="button"
+                        className="btn btn-block btn-info"
+                        onClick={deliverDelayHandler}>
+                        Mark As Will be delayed
                       </Button>
                     </ListGroup.Item>
                   )}

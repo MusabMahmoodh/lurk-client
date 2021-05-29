@@ -20,6 +20,18 @@ import {
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_REQUEST,
   ORDER_DELIVER_RESET,
+  ORDER_CANCEL_FAIL,
+  ORDER_CANCEL_SUCCESS,
+  ORDER_CANCEL_REQUEST,
+  ORDER_CANCEL_RESET,
+  ORDER_HOLD_FAIL,
+  ORDER_HOLD_SUCCESS,
+  ORDER_HOLD_REQUEST,
+  ORDER_HOLD_RESET,
+  ORDER_DELAY_FAIL,
+  ORDER_DELAY_SUCCESS,
+  ORDER_DELAY_REQUEST,
+  ORDER_DELAY_RESET,
   ORDER_CREATE_RESET,
 } from "../constants/orderConstants";
 
@@ -112,6 +124,72 @@ export const orderDeliverReducer = (state = {}, action) => {
         error: action.payload,
       };
     case ORDER_DELIVER_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+export const orderCancelReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_CANCEL_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_CANCEL_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ORDER_CANCEL_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ORDER_CANCEL_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+export const orderHoldReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_HOLD_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_HOLD_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ORDER_HOLD_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ORDER_HOLD_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+export const orderDelayReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_DELAY_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_DELAY_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ORDER_DELAY_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ORDER_DELAY_RESET:
       return {};
     default:
       return state;
