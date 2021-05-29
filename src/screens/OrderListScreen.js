@@ -52,17 +52,38 @@ const OrderListScreen = ({ history }) => {
                 <td>Rs.{order.totalPrice}.00</td>
                 <td>
                   {order.isDelivered ? (
-                    <i className="fas fa-check" style={{ color: "green" }}></i>
+                    <>
+                      {" "}
+                      <i
+                        className="fas fa-check"
+                        style={{ color: "green" }}></i>{" "}
+                      Delivered
+                    </>
                   ) : order.isCancelled ? (
-                    <i class="fas fa-ban" style={{ color: "red" }}></i>
+                    <>
+                      <i class="fas fa-ban" style={{ color: "red" }}></i>{" "}
+                      Cancelled
+                    </>
                   ) : order.isHold ? (
-                    <i
-                      class="fas fa-pause-circle"
-                      style={{ color: "blue" }}></i>
+                    <>
+                      {" "}
+                      <i
+                        class="fas fa-pause-circle"
+                        style={{ color: "blue" }}></i>{" "}
+                      On Hold
+                    </>
+                  ) : order.isDelayed ? (
+                    <>
+                      {" "}
+                      <i
+                        class="fas fa-hourglass-half"
+                        style={{ color: "orange" }}></i>{" "}
+                      Delayed
+                    </>
                   ) : (
-                    <i
-                      class="fas fa-hourglass-half"
-                      style={{ color: "orange" }}></i>
+                    <>
+                      <i class="fas fa-plus"></i> New
+                    </>
                   )}
                 </td>
                 <td>
