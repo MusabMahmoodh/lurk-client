@@ -100,17 +100,26 @@ const OrderScreen = ({ match, history }) => {
   const deliverCancelHandler = () => {
     dispatch(cancelOrder(order));
     alert("Order cancelled");
-    // history.push("/admin/orderlist");
+    dispatch({ type: ORDER_PAY_RESET });
+    dispatch({ type: ORDER_DELIVER_RESET });
+    dispatch(getOrderDetails(orderId));
+    history.push("/admin/orderlist");
   };
   const deliverHoldHandler = () => {
     dispatch(holdOrder(order));
     alert("Order on hold");
-    // history.push("/admin/orderlist");
+    dispatch({ type: ORDER_PAY_RESET });
+    dispatch({ type: ORDER_DELIVER_RESET });
+    dispatch(getOrderDetails(orderId));
+    history.push("/admin/orderlist");
   };
   const deliverDelayHandler = () => {
-    dispatch(deliverOrder(order));
+    dispatch(delayOrder(order));
     alert("Delivery delayed");
-    // history.push("/admin/orderlist");
+    dispatch({ type: ORDER_PAY_RESET });
+    dispatch({ type: ORDER_DELIVER_RESET });
+    dispatch(getOrderDetails(orderId));
+    history.push("/admin/orderlist");
   };
 
   return loading ? (
@@ -154,8 +163,10 @@ const OrderScreen = ({ match, history }) => {
                     {"  Time:"}
                     {order.deliveredAt.split("T")[1].split("Z")[0]}
                   </Message>
+                ) : order.isCancelled ? (
+                  <Message variant="danger">Order is Cancelled</Message>
                 ) : (
-                  <Message variant="danger">Not Delivered</Message>
+                  <Message variant="danger">Not delivered</Message>
                 )}
               </ListGroup.Item>
 
@@ -253,7 +264,8 @@ const OrderScreen = ({ match, history }) => {
                 {userInfo &&
                   userInfo.isAdmin &&
                   //order.isPaid &&
-                  !order.isDelivered && (
+                  !order.isDelivered &&
+                  !order.isCancelled && (
                     <ListGroup.Item>
                       <Button
                         type="button"
@@ -261,24 +273,29 @@ const OrderScreen = ({ match, history }) => {
                         onClick={deliverHandler}>
                         Mark As Delivered
                       </Button>
+
                       <Button
                         type="button"
                         className="btn btn-block btn-danger"
                         onClick={deliverCancelHandler}>
                         Mark As Cancelled
                       </Button>
-                      <Button
-                        type="button"
-                        className="btn btn-block btn-warning"
-                        onClick={deliverHoldHandler}>
-                        Mark As On hold
-                      </Button>
-                      <Button
-                        type="button"
-                        className="btn btn-block btn-info"
-                        onClick={deliverDelayHandler}>
-                        Mark As Will be delayed
-                      </Button>
+                      {!order.isHold && (
+                        <Button
+                          type="button"
+                          className="btn btn-block btn-warning"
+                          onClick={deliverHoldHandler}>
+                          Mark As On hold
+                        </Button>
+                      )}
+                      {!order.isDelayed && (
+                        <Button
+                          type="button"
+                          className="btn btn-block btn-info"
+                          onClick={deliverDelayHandler}>
+                          Mark As Will be delayed
+                        </Button>
+                      )}
                     </ListGroup.Item>
                   )}
               </ListGroup>
