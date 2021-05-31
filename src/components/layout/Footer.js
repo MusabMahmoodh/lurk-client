@@ -21,14 +21,14 @@ const Footer = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://lurk.lk/store/terms">
+                  href="https://drive.google.com/file/d/1dYvz991eNBba46rFrjsVtbQnwvOTFerc/view">
                   Terms & Condition
                 </a>{" "}
                 ||{" "}
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://lurk.lk/store/privacy">
+                  href="https://drive.google.com/file/d/1vaZfbKEf92VRLogsC8ihPByurueA8NPT/view">
                   Privacy Policy
                 </a>
               </div>
@@ -38,14 +38,14 @@ const Footer = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://lurk.lk/store/terms">
+                  href="https://drive.google.com/file/d/1dYvz991eNBba46rFrjsVtbQnwvOTFerc/view">
                   Terms & Condition
                 </a>{" "}
                 <br />
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://lurk.lk/store/privacy">
+                  href="https://drive.google.com/file/d/1vaZfbKEf92VRLogsC8ihPByurueA8NPT/view">
                   Privacy Policy
                 </a>
               </div>

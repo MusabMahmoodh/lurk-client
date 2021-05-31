@@ -110,7 +110,7 @@ function ShippingScreen({ history }) {
           />
           I have read and agree to the website{" "}
           <a
-            href="https://drive.google.com/file/d/1V7r7KM_Ef-auhSpt-q1N6WRSG0KONEx8/view"
+            href="https://drive.google.com/file/d/1dYvz991eNBba46rFrjsVtbQnwvOTFerc/view"
             target="_blank"
             rel="noreferrer">
             Terms and Conditions.
