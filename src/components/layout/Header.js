@@ -40,7 +40,7 @@ const Header = ({ position }) => {
         <Col xs={6} md={4} className="m-auto order-1 order-md-1">
           <Navbar.Brand>
             <LinkContainer to="/">
-              <img src={Logo} height="40px" alt="logo" />
+              <img src={Logo} height="60px" alt="logo" />
             </LinkContainer>
           </Navbar.Brand>
         </Col>

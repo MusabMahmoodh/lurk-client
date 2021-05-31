@@ -53,7 +53,7 @@ function CartScreen({ match, location, history }) {
         <h5 className="text-danger">
           <strong style={{ fontWeight: "900", fontsize: "18px!important" }}>
             Minimum Order Value{" "}
-            <span style={{ fontWeight: "500" }}>Rs.500.00</span>
+            <span style={{ fontWeight: "500" }}>Rs.2000.00</span>
           </strong>
         </h5>
       </Col>
@@ -183,7 +183,7 @@ function CartScreen({ match, location, history }) {
                 cartItems.reduce(
                   (acc, item) => acc + item.qty * item.price,
                   0
-                ) < 500.0
+                ) < 2000.0
               }
               onClick={checkoutHandler}>
               Proceed To Checkout
