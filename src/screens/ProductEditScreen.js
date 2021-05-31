@@ -137,9 +137,9 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <Link to="/admin/productlist" className="btn btn-light my-3">
+      <button onClick={() => history.goBack()} className="btn btn-light my-3">
         Go Back
-      </Link>
+      </button>
       <FormContainer>
         <h2>Edit Product</h2>
         {loadingUpdate && <Loader />}

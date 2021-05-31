@@ -61,7 +61,8 @@ function CartScreen({ match, location, history }) {
       <Col md={8}>
         {cartItems.length === 0 ? (
           <Message variant="info">
-            Your cart is empty <Link to="/">Go Back</Link>
+            Your cart is empty{" "}
+            <span onClick={() => history.goBack()}>Go Back</span>
           </Message>
         ) : (
           <ListGroup variant="flush">

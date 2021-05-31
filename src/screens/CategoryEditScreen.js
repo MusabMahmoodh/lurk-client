@@ -57,9 +57,9 @@ const CategoryEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <Link to="/admin/categorylist" className="btn btn-light my-3">
+      <button onClick={() => history.goBack()} className="btn btn-light my-3">
         Go Back
-      </Link>
+      </button>
       <FormContainer>
         <h2>Edit Category</h2>
         {loadingUpdate && <Loader />}
