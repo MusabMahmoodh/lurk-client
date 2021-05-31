@@ -120,7 +120,7 @@ function CartScreen({ match, location, history }) {
                             aria-describedby="inputGroup-sizing-sm"
                             type="number"
                             min="0"
-                            value={item.qty}
+                            value={(e) => e.target.value}
                             style={{ color: " black" }}
                             onChange={(e) =>
                               dispatch(
